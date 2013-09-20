@@ -13,6 +13,9 @@ Historique des modifications
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
+
+import lab1.formes.Forme;
 
 /**
  * Cette fenêtre gère l'affichage des formes 
@@ -25,12 +28,16 @@ public class FenetreFormes extends JComponent{
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	public static final Dimension dimension = new Dimension(500,500);
-		
+	
+	private Forme formes[];
+	private int nbFormes;
+	
 	/**
 	 * Constructeur
 	 */
 	public FenetreFormes(){
-		
+		formes = new Forme[10];
+		nbFormes = 0;
 	}
 	
 	/*
@@ -38,9 +45,25 @@ public class FenetreFormes extends JComponent{
 	 */
 	@Override 
 	public void paintComponent(Graphics g){
+		for(int i=0; i<formes.length; i++) {
+			if(formes[i] != null){
+				formes[i].paint(g);
+			}
+		}
+	}
+	
+	public void add(Forme forme){
+		if(nbFormes<10){
+			formes[nbFormes++] = forme;
+		}else{
+			for(int i=0; i<nbFormes-1; i++){
+				formes[i] = formes[i+1];
+			}
+			formes[nbFormes-1] = forme;
+		}
 		
-		// Testing...
-		g.drawOval(45, 45, 355, 355);
+		//on repaint les formes
+		this.repaint();
 	}
 	
 	/*

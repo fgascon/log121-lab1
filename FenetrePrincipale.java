@@ -15,6 +15,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
+
+import lab1.formes.Forme;
  
 /**
  * Cette classe représente la fenêtre principale de l'application 
@@ -24,16 +26,19 @@ import javax.swing.JFrame;
 public class FenetrePrincipale extends JFrame implements PropertyChangeListener{
 	
 	private static final long serialVersionUID = -1210804336046370508L;
+	
+	private FenetreFormes fenetreFormes;
+	private CreateurFormes createurFormes;
 
 	/**
 	 * Constructeur
 	 */
 	public FenetrePrincipale(CommBase comm){
-		
+		createurFormes = new CreateurFormes();
 		MenuFenetre menu = new MenuFenetre(comm);
 		this.setLayout(new BorderLayout());
 		this.add(menu, BorderLayout.NORTH); 
-		FenetreFormes fenetreFormes = new FenetreFormes();
+		fenetreFormes = new FenetreFormes();
 		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de forme à la fenètre principale
 		this.pack(); // Ajuste la dimension de la fenêtre principale selon celle de ses composants
 		this.setVisible(true); // Rend la fenêtre principale visible.
@@ -43,9 +48,18 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener{
 	// Appelé lorsque le sujet lance "firePropertyChanger"
 	@Override
 	public void propertyChange(PropertyChangeEvent arg0) {
-		
+
 		if(arg0.getPropertyName().equals("ENVOIE-TEST")){
-			System.out.print((String) arg0.getNewValue());
+			String ligneRecu = (String) arg0.getNewValue();
+			System.out.print(ligneRecu);
+			
+			if(ligneRecu != null){
+				//on crée la forme à partir de la ligne reçu
+				Forme forme = createurFormes.creerForme(ligneRecu);
+				
+				//On ajoute la forme à la fenêtre
+				fenetreFormes.add(forme);
+			}
 		}
 	}
 }
