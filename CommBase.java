@@ -44,7 +44,7 @@ public class CommBase {
 	}
 	
 	/**
-	 * DÈfinir le rÈcepteur de l'information reÁue dans la communication avec le serveur
+	 * D√©finir le r√©cepteur de l'information re√ßue dans la communication avec le serveur
 	 * @param listener sera alert√© lors de l'appel de "firePropertyChanger" par le SwingWorker
 	 */
 	public void setPropertyChangeListener(PropertyChangeListener listener){
@@ -55,7 +55,7 @@ public class CommBase {
 	 * D√©marre la communication
 	 */
 	public void start(){
-		String hostbrute = JOptionPane.showInputDialog("Quel est le nom d'hÙte et le port du serveur de formes?", "localhost:10000");
+		String hostbrute = JOptionPane.showInputDialog("Quel est le nom d'h√¥te et le port du serveur de formes?", "localhost:10000");
 		String str[]=hostbrute.split(":");
 		port = Integer.parseInt(str[1]);
 		host = str[0];
