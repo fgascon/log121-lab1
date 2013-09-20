@@ -30,7 +30,7 @@ public class FenetreFormes extends JComponent{
 	 * Constructeur
 	 */
 	public FenetreFormes(){
-		//... 
+		
 	}
 	
 	/*
