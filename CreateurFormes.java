@@ -1,7 +1,5 @@
 import java.awt.Color;
 
-import javax.swing.JOptionPane;
-
 import lab1.formes.*;
 
 public class CreateurFormes {

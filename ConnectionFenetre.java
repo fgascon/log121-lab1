@@ -1,37 +1,30 @@
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Graphics;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.util.LinkedList;
 
 public class ConnectionFenetre extends JFrame{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	//Les 2 zone de texte pour la calculatrice Tutoriel
 	private JTextField field1;
 	public ConnectionFenetre(){
 		super();
 		
-		buildTutoriel();//On initialise notre fenêtre
+		buildTutoriel();//On initialise notre fenï¿½tre
 	}
 	
 	protected void buildTutoriel(){
-		setTitle("T3 INF111 Partie 1"); //On donne un titre à l'application
-		setSize(300,100); //On donne une taille à notre fenêtre
-		setLocationRelativeTo(null); //On centre la fenêtre sur l'ecran
-		setResizable(false); //On interdit la redimensionnement de la fenêtre
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
+		setTitle("T3 INF111 Partie 1"); //On donne un titre ï¿½ l'application
+		setSize(300,100); //On donne une taille ï¿½ notre fenï¿½tre
+		setLocationRelativeTo(null); //On centre la fenï¿½tre sur l'ecran
+		setResizable(false); //On interdit la redimensionnement de la fenï¿½tre
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit ï¿½ l'application de se fermer lors du clic sur la croix
 		setContentPane(buildContentPane());
 	}
 	
@@ -41,7 +34,7 @@ public class ConnectionFenetre extends JFrame{
 		//Le fond est blanc
 		panel.setBackground(Color.white);
 		
-		//La première zone que l'ont cree
+		//La premiï¿½re zone que l'ont cree
 		field1 = new JTextField();
 		field1.setColumns(10);
 		

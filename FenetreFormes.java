@@ -13,8 +13,6 @@ Historique des modifications
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
-
 import lab1.formes.Forme;
 
 /**
