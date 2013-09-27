@@ -1,6 +1,5 @@
 package lab1.formes;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 
