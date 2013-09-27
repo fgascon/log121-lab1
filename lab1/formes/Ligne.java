@@ -9,7 +9,7 @@ public class Ligne extends Forme {
 	private int y1;
 	private int x2;
 	private int y2;
-	
+
 	public Ligne(int x1, int y1, int x2, int y2, Color color) {
 		super(color);
 		this.x1 = x1;
