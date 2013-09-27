@@ -2,10 +2,14 @@ import java.awt.Color;
 
 import lab1.formes.*;
 
+import ca.etsmtl.log.util.IDLogger;
+
 public class CreateurFormes {
+	
+	private IDLogger logger;
 
 	public CreateurFormes() {
-		
+		this.logger = IDLogger.getInstance();
 	}
 
 	/**
@@ -22,6 +26,7 @@ public class CreateurFormes {
 	 */
 	public Forme creerForme(String chaineForme) {
 		String parts[] = chaineForme.split("\\s");
+		logger.logID(Integer.parseInt(parts[0]));
 		if (parts[1].equals("<LIGNE>")){
 			return new Ligne(
 					Integer.parseInt(parts[2]),
@@ -36,33 +41,33 @@ public class CreateurFormes {
 					Integer.parseInt(parts[3]),
 					Integer.parseInt(parts[4]),
 					Integer.parseInt(parts[5]),
-					Color.CYAN);	
+					Color.CYAN);
 		}
 		else if (parts[1].equals("<CARRE>")){
-	return new Rectangle(
-			Integer.parseInt(parts[2]),
-			Integer.parseInt(parts[3]),
-			Integer.parseInt(parts[4]),
-			Integer.parseInt(parts[5]),
-			Color.PINK);	
+			return new Rectangle(
+					Integer.parseInt(parts[2]),
+					Integer.parseInt(parts[3]),
+					Integer.parseInt(parts[4]),
+					Integer.parseInt(parts[5]),
+					Color.PINK);
 		}
-else if (parts[1].equals("<OVALE>")){
-	return new Ovale(
-			Integer.parseInt(parts[2]),
-			Integer.parseInt(parts[3]),
-			Integer.parseInt(parts[4]),
-			Integer.parseInt(parts[5]),
-			Color.BLUE);
-}
-else if (parts[1].equals("<CERCLE>")){
-	return new Ovale(
-			Integer.parseInt(parts[2]),
-			Integer.parseInt(parts[3]),
-			Integer.parseInt(parts[4]),
-			Color.DARK_GRAY);
-}
-else {
-	return null;
-	}
+		else if (parts[1].equals("<OVALE>")){
+			return new Ovale(
+					Integer.parseInt(parts[2]),
+					Integer.parseInt(parts[3]),
+					Integer.parseInt(parts[4]),
+					Integer.parseInt(parts[5]),
+					Color.BLUE);
+		}
+		else if (parts[1].equals("<CERCLE>")){
+			return new Ovale(
+					Integer.parseInt(parts[2]),
+					Integer.parseInt(parts[3]),
+					Integer.parseInt(parts[4]),
+					Color.DARK_GRAY);
+		}
+		else {
+			return null;
 		}
 	}
+}
