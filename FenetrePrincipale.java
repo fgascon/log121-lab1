@@ -35,11 +35,14 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener{
 	 */
 	public FenetrePrincipale(CommBase comm){
 		this.createurFormes = new CreateurFormes();
+		
 		MenuFenetre menu = new MenuFenetre(comm);
 		this.setLayout(new BorderLayout());
 		this.add(menu, BorderLayout.NORTH); 
+		
 		fenetreFormes = new FenetreFormes();
 		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de forme à la fenètre principale
+		
 		this.pack(); // Ajuste la dimension de la fenêtre principale selon celle de ses composants
 		this.setVisible(true); // Rend la fenêtre principale visible.
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //... à réviser selon le comportement que vous désirez ...

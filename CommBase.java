@@ -68,6 +68,9 @@ public class CommBase {
 	 * Arrête la communication
 	 */
 	public void stop(){
+		if(!isActif){
+			return;
+		}
 		try {
 		 out.println("END");
          out.flush();
@@ -82,7 +85,6 @@ public class CommBase {
 		if(threadComm!=null)
 			threadComm.cancel(true); 
 		isActif = false;
-		
 	}
 	
 	/**

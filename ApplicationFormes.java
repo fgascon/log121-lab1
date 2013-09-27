@@ -30,8 +30,14 @@ public class ApplicationFormes{
 	 */
 	public ApplicationFormes(){
 		
-		CommBase comm = new CommBase();
+		final CommBase comm = new CommBase();
 		FenetrePrincipale fenetre = new FenetrePrincipale(comm);
 		comm.setPropertyChangeListener(fenetre);
+		
+		fenetre.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt){
+                comm.stop();
+            }
+        });
 	}
 }
