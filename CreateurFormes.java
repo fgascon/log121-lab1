@@ -13,16 +13,16 @@ public class CreateurFormes {
 	}
 
 	/**
-	 * Cr�e une nouvelle forme. Cette m�thode re�oit la cha�ne de caract�res
-	 * provenant du serveur de formes, elle d�termine de quelle forme il s'agit
-	 * et applique l'op�rateur new sur le constructeur de la forme d�sir�e.
+	 * Crée une nouvelle forme. Cette méthode reçoit la chaîne de caractères
+	 * provenant du serveur de formes, elle détermine de quelle forme il s'agit
+	 * et applique l'opérateur new sur le constructeur de la forme désirée.
 	 * 
 	 * @param chaineForme
-	 *            un objet String contenant la cha�ne de caract�res qui d�crit
+	 *            un objet String contenant la chaîne de caractères qui décrit
 	 *            une forme et provenant du serveur de formes.
 	 * 
 	 * @return une instance d'une des sous-classes de la classe abstraite Forme
-	 *         avec les param�tres pass�s par la cha�ne d'entr�e.
+	 *         avec les paramètres passés par la chaêne d'entrée.
 	 */
 	public Forme creerForme(String chaineForme) {
 		String parts[] = chaineForme.split("\\s");
