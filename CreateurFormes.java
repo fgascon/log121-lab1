@@ -4,9 +4,16 @@ import lab1.formes.*;
 
 import ca.etsmtl.log.util.IDLogger;
 
+
 public class CreateurFormes {
 	
 	private IDLogger logger;
+	RegEx unRegex;
+	final String carre = "CARRE";
+	final String rectangle = "RECTANGLE";
+	final String cercle = "CERCLE";
+	final String ligne = "LIGNE";
+	final String ovale = "OVALE";
 
 	public CreateurFormes() {
 		this.logger = IDLogger.getInstance();
@@ -25,45 +32,46 @@ public class CreateurFormes {
 	 *         avec les paramètres passés par la chaêne d'entrée.
 	 */
 	public Forme creerForme(String chaineForme) {
-		String parts[] = chaineForme.split("\\s");
-		logger.logID(Integer.parseInt(parts[0]));
-		if (parts[1].equals("<LIGNE>")){
+		this.unRegex = new RegEx(chaineForme);
+		//String parts[] = chaineForme.split("\\s");
+		logger.logID(unRegex.getId());
+		if (unRegex.getForme().equals(ligne)){
 			return new Ligne(
-					Integer.parseInt(parts[2]),
-					Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]),
-					Integer.parseInt(parts[5]),
+					unRegex.getX1(),
+					unRegex.getY1(),
+					unRegex.getX2(),
+					unRegex.getY2(),
 					Color.ORANGE);
 		}
-		else if (parts[1].equals("<RECTANGLE>")){
+		else if (unRegex.getForme().equals(rectangle)){
 			return new Rectangle(
-					Integer.parseInt(parts[2]),
-					Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]),
-					Integer.parseInt(parts[5]),
+					unRegex.getX1(),
+					unRegex.getY1(),
+					unRegex.getX2(),
+					unRegex.getY2(),
 					Color.CYAN);
 		}
-		else if (parts[1].equals("<CARRE>")){
+		else if (unRegex.getForme().equals(carre)){
 			return new Rectangle(
-					Integer.parseInt(parts[2]),
-					Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]),
-					Integer.parseInt(parts[5]),
+					unRegex.getX1(),
+					unRegex.getY1(),
+					unRegex.getX2(),
+					unRegex.getY2(),
 					Color.PINK);
 		}
-		else if (parts[1].equals("<OVALE>")){
+		else if (unRegex.getForme().equals(ovale)){
 			return new Ovale(
-					Integer.parseInt(parts[2]),
-					Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]),
-					Integer.parseInt(parts[5]),
+					unRegex.getX1(),
+					unRegex.getY1(),
+					unRegex.getX2(),
+					unRegex.getY2(),
 					Color.BLUE);
 		}
-		else if (parts[1].equals("<CERCLE>")){
+		else if (unRegex.getForme().equals(cercle)){
 			return new Ovale(
-					Integer.parseInt(parts[2]),
-					Integer.parseInt(parts[3]),
-					Integer.parseInt(parts[4]),
+					unRegex.getX1(),
+					unRegex.getY1(),
+					unRegex.getX2(),
 					Color.DARK_GRAY);
 		}
 		else {
