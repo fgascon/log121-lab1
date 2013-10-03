@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
- * CrÃ©e le menu de la fenÃªtre de l'application.
+ * Crée le menu de la fenêtre de l'application.
  */
 public class MenuFenetre extends JMenuBar {
 
@@ -43,7 +43,7 @@ public class MenuFenetre extends JMenuBar {
 	private JMenuItem arreterMenuItem, demarrerMenuItem;
 	private static final int DELAI_QUITTER_MSEC = 200;
 
-	CommBase comm; // Pour activer/dÃ©sactiver la communication avec le serveur
+	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
 
 	/**
 	 * Constructeur
@@ -56,7 +56,7 @@ public class MenuFenetre extends JMenuBar {
 	}
 
 	/**
-	 * CrÃ©er le menu "Draw".
+	 * Créer le menu "Draw".
 	 */
 
 	protected void addMenuDessiner() {
@@ -89,7 +89,7 @@ public class MenuFenetre extends JMenuBar {
 	}
 
 	/**
-	 * CrÃ©er le menu "File".
+	 * Créer le menu "File".
 	 */
 	protected void addMenuFichier() {
 		JMenu menu = creerMenu(MENU_FICHIER_TITRE,
@@ -112,7 +112,7 @@ public class MenuFenetre extends JMenuBar {
 	}
 
 	/**
-	 * CrÃ©er le menu "Help".
+	 * Créer le menu "Help".
 	 */
 	private void addMenuAide() {
 		JMenu menu = creerMenu(MENU_AIDE_TITRE,
@@ -129,7 +129,7 @@ public class MenuFenetre extends JMenuBar {
 	}
 
 	/**
-	 * Activer ou dÃ©sactiver les items du menu selon la sÃ©lection.
+	 * Activer ou désactiver les items du menu selon la sélection.
 	 */
 	private void rafraichirMenus() {
 		demarrerMenuItem.setEnabled(!comm.isActif());
@@ -137,12 +137,10 @@ public class MenuFenetre extends JMenuBar {
 	}
 
 	/**
-	 * CrÃ©er un Ã©lÃ©ment de menu Ã  partir d'un champs principal et ses Ã©lÃ©ments
+	 * Créer un élément de menu à partir d'un champs principal et ses éléments
 	 * 
-	 * @param titleKey
-	 *            champs principal
-	 * @param itemKeys
-	 *            Ã©lÃ©ments
+	 * @param titleKey champs principal
+	 * @param itemKeys éléments
 	 * @return le menu
 	 */
 	private static JMenu creerMenu(String titleKey, String[] itemKeys) {

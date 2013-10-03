@@ -2,7 +2,7 @@
 Cours:  LOG121
 Projet: Squelette du laboratoire #1
 Nom du fichier: ApplicationFormes.java
-Date crÃ©Ã©: 2013-05-03
+Date créé: 2013-05-03
  *******************************************************
 Historique des modifications
  *******************************************************
@@ -11,7 +11,7 @@ Historique des modifications
  *******************************************************/
 
 /**
- * Cette classe reprÃ©sente l'application dans son ensemble.
+ * Cette classe représente l'application dans son ensemble.
  * 
  * @author Patrice Boucher
  * @date 2013/05/04
@@ -19,12 +19,12 @@ Historique des modifications
 public class ApplicationFormes {
 
 	/**
-	 * main de l'application
+	 * main de l'application, instancie l'application
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ApplicationFormes application = new ApplicationFormes();
+		new ApplicationFormes();
 	}
 
 	/**

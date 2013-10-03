@@ -43,7 +43,7 @@ public class LangueConfig {
 	};
 
 	/**
-	 * Retourne un mot (dans la langue de l'application) liÃ© Ã  un champs
+	 * Retourne un mot (dans la langue de l'application) lié à un champs
 	 * 
 	 * @param key
 	 *            champs

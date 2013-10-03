@@ -19,7 +19,7 @@ import javax.swing.JFrame;
 import lab1.formes.Forme;
 
 /**
- * Cette classe reprÃ©sente la fenÃªtre principale de l'application
+ * Cette classe représente la fenêtre principale de l'application
  * 
  * @author Patrice Boucher
  * @date 2013/05/04
@@ -28,7 +28,15 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 
 	private static final long serialVersionUID = -1210804336046370508L;
 
+	/**
+	 * La fenêtre de formes qui va afficher les formes.
+	 */
 	private FenetreFormes fenetreFormes;
+	
+	/**
+	 * Le créateur de formes qui va créer des formes en fonctions des messages
+	 * reçu du serveur.
+	 */
 	private CreateurFormes createurFormes;
 
 	/**
@@ -42,33 +50,34 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 		this.add(menu, BorderLayout.NORTH);
 
 		fenetreFormes = new FenetreFormes();
-		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenÃªtre de
-														// forme Ã  la fenÃ¨tre
+		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de
+														// forme à la fenêtre
 														// principale
 
-		this.pack(); // Ajuste la dimension de la fenÃªtre principale selon celle
+		this.pack(); // Ajuste la dimension de la fenêtre principale selon celle
 						// de ses composants
-		this.setVisible(true); // Rend la fenÃªtre principale visible.
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ... Ã  rÃ©viser
-																// selon le
-																// comportement
-																// que vous
-																// dÃ©sirez ...
+		this.setVisible(true); // Rend la fenêtre principale visible.
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	// AppelÃ© lorsque le sujet lance "firePropertyChanger"
+	/**
+	 * Appelé lorsque le sujet lance "firePropertyChanger".
+	 * Cette méthode va recevoir les évènements émises par CommBase, va
+	 * décortiquer la chaîne reçu du serveur via le createurFormes, puis
+	 * va l'ajouter à la fenêtre de formes.
+	 */
 	@Override
 	public void propertyChange(PropertyChangeEvent arg0) {
 
-		if (arg0.getPropertyName().equals("ENVOIE-TEST")) {
+		if (arg0.getPropertyName().equals("SERVER-MSG")) {
 			String ligneRecu = (String) arg0.getNewValue();
 			System.out.print(ligneRecu);
 
 			if (ligneRecu != null) {
-				// on crÃ©e la forme Ã  partir de la ligne reÃ§u
+				// on crée la forme à partir de la ligne reçu
 				Forme forme = createurFormes.creerForme(ligneRecu);
 
-				// On ajoute la forme Ã  la fenÃªtre
+				// On ajoute la forme à la fenêtre
 				fenetreFormes.add(forme);
 			}
 		}
