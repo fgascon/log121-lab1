@@ -13,6 +13,8 @@ Historique des modifications
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JComponent;
 import lab1.formes.Forme;
 
@@ -49,10 +51,10 @@ public class FenetreFormes extends JComponent {
 	 * Dessine toutes les formes
 	 */
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics graphics) {
 		for (int i = 0; i < formes.length; i++) {
 			if (formes[i] != null) {
-				formes[i].paint(g);
+				formes[i].paint((Graphics2D) graphics);
 			}
 		}
 	}

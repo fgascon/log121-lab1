@@ -41,6 +41,6 @@ public class Rectangle extends Forme {
 	}
 	
 	protected void drawOutbound(Graphics graphics){
-		graphics.drawRect(x-1, y-1, width+2, height+2);
+		graphics.drawRect(x-1, y-1, width+1, height+1);
 	}
 }
