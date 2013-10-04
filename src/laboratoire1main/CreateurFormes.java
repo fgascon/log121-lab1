@@ -1,3 +1,4 @@
+package laboratoire1main;
 import java.awt.Color;
 
 import lab1.formes.*;
@@ -39,7 +40,7 @@ public class CreateurFormes {
 	 * @return une instance d'une des sous-classes de la classe abstraite Forme
 	 *         avec les paramêtres passés par la chaîne d'entrée.
 	 */
-	public Forme creerForme(String chaineForme) {
+	public AbstractForme creerForme(String chaineForme) {
 		RegEx unRegex = new RegEx(chaineForme);
 		
 		logger.logID(unRegex.getId());

@@ -6,36 +6,36 @@ import java.awt.Graphics;
 /**
  * Représente un ovale pouvant être dessiné.
  */
-public class Ovale extends Forme {
+public class Ovale extends AbstractForme {
 
-	private int x;
-	private int y;
+	private int coordonnex;
+	private int coordonney;
 	private int width;
 	private int height;
 
 	/**
 	 * Constructeur prennant un seul rayon pour représenter un cercle
-	 * @param x coordonée en x du centre
-	 * @param y coordonée en y du centre
+	 * @param coordonnex coordonée en x du centre
+	 * @param coordonney coordonée en y du centre
 	 * @param rayon rayon du cercle
 	 * @param color couleur du cercle
 	 */
-	public Ovale(int x, int y, int rayon, Color color) {
-		this(x, y, rayon, rayon, color);
+	public Ovale(int coordonnex, int coordonney, int rayon, Color color) {
+		this(coordonnex, coordonney, rayon, rayon, color);
 	}
 
 	/**
 	 * Constructeur prennant 2 rayons pour représenter un ovale
-	 * @param x coordonée en x du centre
-	 * @param y coordonée en y du centre
+	 * @param coordonnex coordonée en x du centre
+	 * @param coordonney coordonée en y du centre
 	 * @param rayonH rayon horizontal
 	 * @param rayonV rayon vertical
 	 * @param color couleur de l'ovale
 	 */
-	public Ovale(int x, int y, int rayonH, int rayonV, Color color) {
+	public Ovale(int coordonnex, int coordonney, int rayonH, int rayonV, Color color) {
 		super(color);
-		this.x = x;
-		this.y = y;
+		this.coordonnex = coordonnex;
+		this.coordonney = coordonney;
 		this.width = rayonH * 2;
 		this.height = rayonV * 2;
 	}
@@ -46,8 +46,8 @@ public class Ovale extends Forme {
 	 * 
 	 * @param g Graphics sur lequel dessiner l'ovale
 	 */
-	public void paint(Graphics g) {
-		g.setColor(this.getColor());
-		g.fillOval(x, y, width, height);
+	public void paint(Graphics graphic) {
+		graphic.setColor(this.getColor());
+		graphic.fillOval(coordonnex, coordonney, width, height);
 	}
 }

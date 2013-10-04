@@ -1,3 +1,4 @@
+package laboratoire1main;
 
 import java.util.regex.*;
 
@@ -10,10 +11,10 @@ public class RegEx {
 	private String unMatch;
 	private int unID;
 	private String uneForme;
-	private int x1;
-	private int y1;
-	private int x2;
-	private int y2;
+	private int coordonnex1;
+	private int coordonney1;
+	private int coordonnex2;
+	private int coordonney2;
 	
 	/**
 	 * Constructeur de la classe qui gère les RégularExpression
@@ -48,14 +49,14 @@ public class RegEx {
 			//l'ajout du nom sans <> dans sa variable
 			uneForme = unSplit[1];
 			//convertion d'un cooredonnée String en Integer
-			x1 = Integer.parseInt(unSplit[2]);
+			coordonnex1 = Integer.parseInt(unSplit[2]);
 			//convertion d'un cooredonnée String en Integer
-			y1 = Integer.parseInt(unSplit[3]);
+			coordonney1 = Integer.parseInt(unSplit[3]);
 			//convertion d'un cooredonnée String en Integer
-			x2 = Integer.parseInt(unSplit[4]);
+			coordonnex2 = Integer.parseInt(unSplit[4]);
 			//Vérifie si il y a 4 coordonnées et s'il y en a 4 il va la chercher et la stock
 			if (unSplit.length== 6){
-				y2=Integer.parseInt(unSplit[5]);
+				coordonney2=Integer.parseInt(unSplit[5]);
 			}
 		}
 		
@@ -65,28 +66,28 @@ public class RegEx {
 	 * Cette méthode sert a retourner la position X1
 	 * */
 	public int getX1(){
-		return x1;
+		return coordonnex1;
 	}
 	
 	/**
 	 * Cette méthode sert a retourner la position X2
 	 * */
 	public int getX2(){
-		return x2;
+		return coordonnex2;
 	}
 	
 	/**
 	 * Cette méthode sert a retourner la position Y1
 	 * */
 	public int getY1(){
-		return y1;
+		return coordonney1;
 	}
 	
 	/**
 	 * Cette méthode sert a retourner la position Y1
 	 * */
 	public int getY2(){
-		return y2;
+		return coordonney2;
 	}
 	
 	/**

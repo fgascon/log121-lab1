@@ -1,3 +1,4 @@
+package laboratoire1main;
 /******************************************************
 Cours:  LOG121
 Projet: Squelette du laboratoire #1
@@ -16,6 +17,7 @@ Historique des modifications
  * @author Patrice Boucher
  * @date 2013/05/04
  */
+
 public class ApplicationFormes {
 
 	/**

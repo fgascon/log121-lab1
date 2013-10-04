@@ -1,3 +1,4 @@
+package laboratoire1main;
 /******************************************************
 Cours:  LOG121
 Projet: Squelette du laboratoire #1
@@ -13,7 +14,8 @@ Historique des modifications
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
-import lab1.formes.Forme;
+
+import lab1.formes.AbstractForme;
 
 /**
  * Cette fenêtre gère l'affichage des formes
@@ -29,7 +31,7 @@ public class FenetreFormes extends JComponent {
 	/**
 	 * Array contenant les formes de la fenêtre.
 	 */
-	private Forme formes[];
+	private AbstractForme formes[];
 	
 	/**
 	 * Le nombre de formes présentement dans la fenêtre
@@ -40,7 +42,7 @@ public class FenetreFormes extends JComponent {
 	 * Constructeur de la classe
 	 */
 	public FenetreFormes() {
-		formes = new Forme[10];
+		formes = new AbstractForme[10];
 		nbFormes = 0;
 	}
 
@@ -48,10 +50,10 @@ public class FenetreFormes extends JComponent {
 	 * Dessine toutes les formes
 	 */
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics graphic) {
 		for (int i = 0; i < formes.length; i++) {
 			if (formes[i] != null) {
-				formes[i].paint(g);
+				formes[i].paint(graphic);
 			}
 		}
 	}
@@ -62,7 +64,7 @@ public class FenetreFormes extends JComponent {
 	 * va automatiquement provoquer un repaint pour afficher les chagements.
 	 * @param forme la forme à ajouter
 	 */
-	public void add(Forme forme) {
+	public void add(AbstractForme forme) {
 		if (nbFormes < MAX_FORMS) {
 			formes[nbFormes++] = forme;
 		} else {

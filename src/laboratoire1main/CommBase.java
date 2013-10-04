@@ -1,3 +1,4 @@
+package laboratoire1main;
 /******************************************************
 Cours:  LOG121
 Projet: Squelette du laboratoire #1
@@ -29,11 +30,11 @@ public class CommBase {
 	private final int DELAI = 1000;
 	private SwingWorker threadComm = null;
 	private PropertyChangeListener listener = null;
-	private boolean isActif = false;
+	private boolean actif = false;
 	private String host = "localhost";
 	private int port = 0;
 	private Socket socket;
-	private BufferedReader in;
+	private BufferedReader inbuf;
 	private PrintWriter out;
 
 	/**
@@ -71,7 +72,7 @@ public class CommBase {
 	 * Arrête la communication si elle est active.
 	 */
 	public void stop() {
-		if (!isActif) {
+		if (!actif) {
 			return;
 		}
 		try {
@@ -87,7 +88,7 @@ public class CommBase {
 		}
 		if (threadComm != null)
 			threadComm.cancel(true);
-		isActif = false;
+		actif = false;
 	}
 
 	/**
@@ -102,7 +103,7 @@ public class CommBase {
 
 				try {
 					socket = new Socket(host, port);
-					in = new BufferedReader(new InputStreamReader(
+					inbuf = new BufferedReader(new InputStreamReader(
 							socket.getInputStream()));
 
 					out = new PrintWriter(socket.getOutputStream());
@@ -118,8 +119,8 @@ public class CommBase {
 					Thread.sleep(DELAI);
 					out.println("GET");
 					out.flush();
-					String message_distant = in.readLine();
-					message_distant = in.readLine();
+					String message_distant = inbuf.readLine();
+					message_distant = inbuf.readLine();
 					if (listener != null)
 						firePropertyChange("SERVER-MSG", null, message_distant);
 				}
@@ -129,13 +130,13 @@ public class CommBase {
 			threadComm.addPropertyChangeListener(listener);
 
 		threadComm.execute(); // Lance le fil d'exécution parallèle.
-		isActif = true;
+		actif = true;
 	}
 
 	/**
 	 * @return si le fil d'exécution parallèle est actif
 	 */
 	public boolean isActif() {
-		return isActif;
+		return actif;
 	}
 }
