@@ -1,3 +1,4 @@
+package lab1;
 import java.awt.Color;
 
 import lab1.formes.*;
