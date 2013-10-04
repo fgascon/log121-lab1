@@ -35,8 +35,14 @@ public class Ligne extends Forme {
 	 * 
 	 * @param g Graphics sur lequel dessiner la ligne
 	 */
-	public void paint(Graphics g) {
+	public void drawForme(Graphics g) {
 		g.setColor(this.getColor());
 		g.drawLine(x1, y1, x2, y2);
+	}
+
+	@Override
+	protected void drawOutbound(Graphics graphics) {
+		// TODO Auto-generated method stub
+		
 	}
 }

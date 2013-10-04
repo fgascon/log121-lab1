@@ -35,9 +35,12 @@ public class Rectangle extends Forme {
 	 * 
 	 * @param g Graphics sur lequel dessiner le rectangle
 	 */
-	public void paint(Graphics g) {
-		g.setColor(this.getColor());
-		g.fillRect(x, y, width, height);
+	
+	protected void drawForme(Graphics graphics){
+		graphics.fillRect(x, y, width, height);
 	}
-
+	
+	protected void drawOutbound(Graphics graphics){
+		graphics.drawRect(x-1, y-1, width+2, height+2);
+	}
 }

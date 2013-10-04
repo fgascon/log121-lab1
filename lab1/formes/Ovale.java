@@ -46,8 +46,14 @@ public class Ovale extends Forme {
 	 * 
 	 * @param g Graphics sur lequel dessiner l'ovale
 	 */
-	public void paint(Graphics g) {
+	public void drawForme(Graphics g) {
 		g.setColor(this.getColor());
 		g.fillOval(x, y, width, height);
+	}
+
+	@Override
+	protected void drawOutbound(Graphics graphics) {
+		// TODO Auto-generated method stub
+		
 	}
 }

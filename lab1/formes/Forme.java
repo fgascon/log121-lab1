@@ -29,7 +29,17 @@ public abstract class Forme {
 	 * Paint la forme sur un object Graphics.
 	 * Cette méthode doit être implémenté dans les classes concrètes.
 	 * 
-	 * @param g Graphics sur lequel dessiner la forme
+	 * @param graphics Graphics sur lequel dessiner la forme
 	 */
-	public abstract void paint(Graphics g);
+	public void paint(Graphics graphics){
+		graphics.setColor(this.getColor());
+		this.drawForme(graphics);
+		graphics.setColor(Color.GRAY);
+		//graphics.setStroke();
+		this.drawOutbound(graphics);
+	}
+
+	protected abstract void drawForme(Graphics graphics);
+
+	protected abstract void drawOutbound(Graphics graphics);
 }
