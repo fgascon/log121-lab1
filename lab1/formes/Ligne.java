@@ -36,13 +36,24 @@ public class Ligne extends Forme {
 	 * @param g Graphics sur lequel dessiner la ligne
 	 */
 	public void drawForme(Graphics g) {
-		g.setColor(this.getColor());
 		g.drawLine(x1, y1, x2, y2);
 	}
 
 	@Override
 	protected void drawOutbound(Graphics graphics) {
-		// TODO Auto-generated method stub
-		
+		graphics.drawRect(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x2-x1), Math.abs(y2-y1));
+	}
+
+	@Override
+	public float getMaxDistance() {
+		float deltaX = x2-x1;
+		float deltaY = y2-y1;
+		return (float)Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+	}
+
+	@Override
+	public float getAire() {
+		//l'aire de la ligne = 1 * longueur
+		return getMaxDistance();
 	}
 }

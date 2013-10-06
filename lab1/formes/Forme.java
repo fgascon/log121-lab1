@@ -18,6 +18,7 @@ public abstract class Forme {
             10.0f, DASHED_LINE, 0.0f);
 
 	private Color color;
+	private int numSequence;
 
 	/**
 	 * Constructeur de la classe
@@ -25,6 +26,7 @@ public abstract class Forme {
 	 */
 	public Forme(Color color) {
 		this.color = color;
+		this.numSequence = 0;
 	}
 
 	/**
@@ -32,6 +34,10 @@ public abstract class Forme {
 	 */
 	public Color getColor() {
 		return this.color;
+	}
+	
+	public int getNumSequence(){
+		return numSequence;
 	}
 
 	/**
@@ -55,4 +61,8 @@ public abstract class Forme {
 	protected abstract void drawForme(Graphics graphics);
 
 	protected abstract void drawOutbound(Graphics graphics);
+	
+	public abstract float getMaxDistance();
+	
+	public abstract float getAire();
 }

@@ -35,12 +35,22 @@ public class Rectangle extends Forme {
 	 * 
 	 * @param g Graphics sur lequel dessiner le rectangle
 	 */
-	
 	protected void drawForme(Graphics graphics){
 		graphics.fillRect(x, y, width, height);
 	}
-	
+
+	@Override
 	protected void drawOutbound(Graphics graphics){
 		graphics.drawRect(x-1, y-1, width+1, height+1);
+	}
+
+	@Override
+	public float getMaxDistance() {
+		return (float)Math.sqrt(width*width + height*height);
+	}
+
+	@Override
+	public float getAire() {
+		return width * height;
 	}
 }

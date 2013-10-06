@@ -34,8 +34,8 @@ public class Ovale extends Forme {
 	 */
 	public Ovale(int x, int y, int rayonH, int rayonV, Color color) {
 		super(color);
-		this.x = x;
-		this.y = y;
+		this.x = x - rayonH;
+		this.y = y - rayonV;
 		this.width = rayonH * 2;
 		this.height = rayonV * 2;
 	}
@@ -47,13 +47,22 @@ public class Ovale extends Forme {
 	 * @param g Graphics sur lequel dessiner l'ovale
 	 */
 	public void drawForme(Graphics g) {
-		g.setColor(this.getColor());
 		g.fillOval(x, y, width, height);
 	}
 
 	@Override
 	protected void drawOutbound(Graphics graphics) {
-		// TODO Auto-generated method stub
-		
+		graphics.drawRect(x, y, width, height);
+	}
+
+	@Override
+	public float getMaxDistance() {
+		return Math.max(width, height);
+	}
+
+	@Override
+	public float getAire() {
+		//L'aire d'un ovale = PI * width/2 * height/2
+		return (float) (Math.PI * width * height / 4);
 	}
 }
