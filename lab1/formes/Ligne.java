@@ -56,4 +56,9 @@ public class Ligne extends AbstractForme {
 		//l'aire de la ligne = 1 * longueur
 		return getMaxDistance();
 	}
+
+	@Override
+	public String getType() {
+		return "ligne";
+	}
 }

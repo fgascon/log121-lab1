@@ -65,4 +65,9 @@ public class Ovale extends AbstractForme {
 		//L'aire d'un ovale = PI * width/2 * height/2
 		return (float) (Math.PI * width * height / 4);
 	}
+
+	@Override
+	public String getType() {
+		return width == height ? "cercle" : "ovale";
+	}
 }

@@ -39,6 +39,8 @@ public abstract class AbstractForme {
 	public int getNumSequence(){
 		return numSequence;
 	}
+	
+	public abstract String getType();
 
 	/**
 	 * Paint la forme sur un object Graphics.

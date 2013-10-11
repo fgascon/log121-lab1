@@ -53,4 +53,9 @@ public class Rectangle extends AbstractForme {
 	public float getAire() {
 		return width * height;
 	}
+
+	@Override
+	public String getType() {
+		return width == height ? "carre" : "rectangle";
+	}
 }
