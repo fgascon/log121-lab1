@@ -116,7 +116,7 @@ public class CommBase {
 					e.printStackTrace();
 				}
 				int i=0;
-				while (i != nbdeformes && true) {
+				while (i != nbdeformes) {
 					Thread.sleep(DELAI);
 					sortie.println("GET");
 					sortie.flush();
@@ -126,6 +126,7 @@ public class CommBase {
 						firePropertyChange("SERVER-MSG", null, messagedistant);
 					i++;
 				}
+				stop();
 				return null;
 			}
 		};

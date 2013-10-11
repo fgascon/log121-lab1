@@ -146,6 +146,7 @@ public class MenuFenetre extends JMenuBar {
 	private void rafraichirMenus() {
 		demarrerMenuItem.setEnabled(!comm.isActif());
 		arreterMenuItem.setEnabled(comm.isActif());
+		dixformesMenuItem.setEnabled(!comm.isActif());
 	}
 
 	/**
