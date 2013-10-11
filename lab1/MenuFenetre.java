@@ -24,7 +24,9 @@ import javax.swing.KeyStroke;
  * Crée le menu de la fenêtre de l'application.
  */
 public class MenuFenetre extends JMenuBar {
-
+	
+	private final int boucleinfinie = -1;
+	private final int dixformes = 10;
 	private static final long serialVersionUID = 1536336192561843187L;
 	private static final int MENU_DESSIN_ARRETER_TOUCHE_MASK = ActionEvent.CTRL_MASK;
 	private static final char MENU_DESSIN_ARRETER_TOUCHE_RACC = KeyEvent.VK_A;
@@ -42,7 +44,7 @@ public class MenuFenetre extends JMenuBar {
 			MENU_AIDE_PROPOS = "app.frame.menus.help.about";
 	private static final String MESSAGE_DIALOGUE_A_PROPOS = "app.frame.dialog.about";
 
-	private JMenuItem arreterMenuItem, demarrerMenuItem;
+	private JMenuItem arreterMenuItem, demarrerMenuItem, dixformesMenuItem;
 	private static final int DELAI_QUITTER_MSEC = 200;
 
 	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
@@ -68,7 +70,7 @@ public class MenuFenetre extends JMenuBar {
 		demarrerMenuItem = menu.getItem(0);
 		demarrerMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comm.start();
+				comm.start(boucleinfinie);
 				rafraichirMenus();
 			}
 		});
@@ -80,6 +82,14 @@ public class MenuFenetre extends JMenuBar {
 		arreterMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				comm.stop();
+				rafraichirMenus();
+			}
+		});
+		
+		dixformesMenuItem = menu.getItem(2);
+		dixformesMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comm.start(dixformes);
 				rafraichirMenus();
 			}
 		});

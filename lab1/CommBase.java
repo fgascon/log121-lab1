@@ -58,14 +58,14 @@ public class CommBase {
 	 * Demande à l'utilisateur à quel hôte et port se connecter, puis
 	 * démarre la communication.
 	 */
-	public void start() {
+	public void start(int nbdeformes) {
 		String hostbrute = JOptionPane.showInputDialog(
 				"Quel est le nom d'hôte et le port du serveur de formes?",
 				"localhost:10000");
 		String str[] = hostbrute.split(":");
 		port = Integer.parseInt(str[1]);
 		host = str[0];
-		creerCommunication();
+		creerCommunication(nbdeformes);
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class CommBase {
 	/**
 	 * Créer le nécessaire pour la communication avec le serveur
 	 */
-	protected void creerCommunication() {
+	protected void creerCommunication(final int nbdeformes) {
 		// Crée un fil d'exécusion parallèle au fil courant,
 		threadComm = new SwingWorker() {
 			@Override
@@ -115,7 +115,8 @@ public class CommBase {
 
 					e.printStackTrace();
 				}
-				while (true) {
+				int i=0;
+				while (i != nbdeformes && true) {
 					Thread.sleep(DELAI);
 					sortie.println("GET");
 					sortie.flush();
@@ -123,7 +124,9 @@ public class CommBase {
 					messagedistant = entre.readLine();
 					if (listener != null)
 						firePropertyChange("SERVER-MSG", null, messagedistant);
+					i++;
 				}
+				return null;
 			}
 		};
 		if (listener != null)
