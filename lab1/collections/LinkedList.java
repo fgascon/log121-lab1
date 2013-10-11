@@ -1,5 +1,7 @@
 package lab1.collections;
 
+import lab1.formes.AbstractForme;
+
 public class LinkedList<E> {
 
 	private Noeud first;
@@ -38,7 +40,7 @@ public class LinkedList<E> {
 	}
 	
 	public Iterator getIterator() {
-		return new LinkedListIterator();
+		return new LinkedListIterator(first);
 	}
 	
 	public void sort(Comparator comparator, boolean sortDecreasing) {
@@ -85,8 +87,10 @@ public class LinkedList<E> {
 	private class LinkedListIterator implements Iterator {
 		
 		private Noeud current;
+		private Noeud first;
 		
-		public LinkedListIterator() {
+		public LinkedListIterator(Noeud first) {
+			this.first = first;
 			reset();
 		}
 		
@@ -95,12 +99,13 @@ public class LinkedList<E> {
 		}
 		
 		public E getNext() {
+			E unItem = current.item;
 			current = current.next;
-			return current.item;
+			return unItem;
 		}
 		
 		public boolean hasNext() {
-			return current.next != null;
+			return current != null ;
 		}
 	}
 }

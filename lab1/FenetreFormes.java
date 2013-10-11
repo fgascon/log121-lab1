@@ -14,7 +14,7 @@ Historique des modifications
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
+import lab1.collections.*;
 import javax.swing.JComponent;
 import lab1.formes.AbstractForme;
 
@@ -32,7 +32,8 @@ public class FenetreFormes extends JComponent {
 	/**
 	 * Array contenant les formes de la fenêtre.
 	 */
-	private AbstractForme formes[];
+	private LinkedList<AbstractForme> formes = new LinkedList<AbstractForme>(MAX_FORMS);
+	
 	
 	/**
 	 * Le nombre de formes présentement dans la fenêtre
@@ -43,7 +44,6 @@ public class FenetreFormes extends JComponent {
 	 * Constructeur de la classe
 	 */
 	public FenetreFormes() {
-		formes = new AbstractForme[10];
 		nbFormes = 0;
 	}
 
@@ -52,10 +52,14 @@ public class FenetreFormes extends JComponent {
 	 */
 	@Override
 	public void paintComponent(Graphics graphics) {
-		for (int i = 0; i < formes.length; i++) {
-			if (formes[i] != null) {
-				formes[i].paint((Graphics2D) graphics);
-			}
+		
+		 //L'itérateur pour allez chercher les formes
+		 	
+		Iterator unIterateur = formes.getIterator();
+		
+		while(unIterateur.hasNext()){
+			AbstractForme uneForme = (AbstractForme) unIterateur.getNext();
+			uneForme.paint((Graphics2D) graphics);
 		}
 	}
 
@@ -66,14 +70,7 @@ public class FenetreFormes extends JComponent {
 	 * @param forme la forme à ajouter
 	 */
 	public void add(AbstractForme forme) {
-		if (nbFormes < MAX_FORMS) {
-			formes[nbFormes++] = forme;
-		} else {
-			for (int i = 0; i < nbFormes - 1; i++) {
-				formes[i] = formes[i + 1];
-			}
-			formes[nbFormes - 1] = forme;
-		}
+		formes.add(forme);
 
 		// on repaint les formes pour prendre en compte les changements
 		this.repaint();
