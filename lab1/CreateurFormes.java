@@ -46,42 +46,47 @@ public class CreateurFormes {
 		logger.logID(unRegex.getId());
 		if (unRegex.getForme().equals(ligne)){
 			return new Ligne(
+					unRegex.getId(),
+					Color.ORANGE,
 					unRegex.getX1(),
 					unRegex.getY1(),
 					unRegex.getX2(),
-					unRegex.getY2(),
-					Color.ORANGE);
+					unRegex.getY2());
 		}
 		else if (unRegex.getForme().equals(rectangle)){
 			return new Rectangle(
+					unRegex.getId(),
+					Color.CYAN,
 					unRegex.getX1(),
 					unRegex.getY1(),
 					unRegex.getX2(),
-					unRegex.getY2(),
-					Color.CYAN);
+					unRegex.getY2());
 		}
 		else if (unRegex.getForme().equals(carre)){
 			return new Rectangle(
+					unRegex.getId(),
+					Color.PINK,
 					unRegex.getX1(),
 					unRegex.getY1(),
 					unRegex.getX2(),
-					unRegex.getY2(),
-					Color.PINK);
+					unRegex.getY2());
 		}
 		else if (unRegex.getForme().equals(ovale)){
 			return new Ovale(
+					unRegex.getId(),
+					Color.BLUE,
 					unRegex.getX1(),
 					unRegex.getY1(),
 					unRegex.getX2(),
-					unRegex.getY2(),
-					Color.BLUE);
+					unRegex.getY2());
 		}
 		else if (unRegex.getForme().equals(cercle)){
 			return new Ovale(
+					unRegex.getId(),
+					Color.RED,
 					unRegex.getX1(),
 					unRegex.getY1(),
-					unRegex.getX2(),
-					Color.DARK_GRAY);
+					unRegex.getX2());
 		}
 		else {
 			return null;

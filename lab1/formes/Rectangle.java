@@ -8,10 +8,7 @@ import java.awt.Graphics;
  */
 public class Rectangle extends AbstractForme {
 
-	private int coordonneex;
-	private int coordonneey;
-	private int width;
-	private int height;
+	private Vecteur size;
 
 	/**
 	 * Constructeur de la classe
@@ -21,12 +18,9 @@ public class Rectangle extends AbstractForme {
 	 * @param coordonneey2 coordonée en y du deuxième coin du rectangle
 	 * @param color couleur du rectangle
 	 */
-	public Rectangle(int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2, Color color) {
-		super(color);
-		width = Math.abs(coordonneex2 - coordonneex1);
-		height = Math.abs(coordonneey2 - coordonneey1);
-		coordonneex = Math.min(coordonneex1, coordonneex2);
-		coordonneey = Math.min(coordonneey1, coordonneey2);
+	public Rectangle(int numSequence, Color color, int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2) {
+		super(numSequence, color, new Vecteur(Math.min(coordonneex1, coordonneex2), Math.min(coordonneey1, coordonneey2)));
+		size = new Vecteur(Math.abs(coordonneex2 - coordonneex1), Math.abs(coordonneey2 - coordonneey1));
 	}
 
 	@Override
@@ -36,26 +30,25 @@ public class Rectangle extends AbstractForme {
 	 * @param g Graphics sur lequel dessiner le rectangle
 	 */
 	protected void drawForme(Graphics graphics){
-		graphics.fillRect(coordonneex, coordonneey, width, height);
+		graphics.fillRect(getCoordonnees().getX(), getCoordonnees().getY(), size.getX(), size.getY());
 	}
-
-	@Override
-	protected void drawOutbound(Graphics graphics){
-		graphics.drawRect(coordonneex-1, coordonneey-1, width+1, height+1);
+	
+	protected Vecteur getSize() {
+		return size;
 	}
 
 	@Override
 	public float getMaxDistance() {
-		return (float)Math.sqrt(width*width + height*height);
+		return size.getNorme();
 	}
 
 	@Override
 	public float getAire() {
-		return width * height;
+		return size.getX() * size.getY();
 	}
 
 	@Override
 	public String getType() {
-		return width == height ? "carre" : "rectangle";
+		return size.getX() == size.getY() ? "carre" : "rectangle";
 	}
 }

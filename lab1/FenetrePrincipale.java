@@ -17,6 +17,7 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
 
+import lab1.collections.LinkedList;
 import lab1.formes.AbstractForme;
 
 /**
@@ -26,8 +27,12 @@ import lab1.formes.AbstractForme;
  * @date 2013/05/04
  */
 public class FenetrePrincipale extends JFrame implements PropertyChangeListener {
+	
+	private static final int MAX_FORMS = 10;
 
 	private static final long serialVersionUID = -1210804336046370508L;
+	
+	private LinkedList<AbstractForme> formes;
 
 	/**
 	 * La fenêtre de formes qui va afficher les formes.
@@ -49,8 +54,10 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 		MenuFenetre menu = new MenuFenetre(comm);
 		this.setLayout(new BorderLayout());
 		this.add(menu, BorderLayout.NORTH);
+		
+		formes = new LinkedList<AbstractForme>(MAX_FORMS);
 
-		fenetreFormes = new FenetreFormes();
+		fenetreFormes = new FenetreFormes(formes);
 		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de
 														// forme à la fenêtre
 														// principale
@@ -79,7 +86,7 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 				AbstractForme forme = createurFormes.creerForme(ligneRecu);
 
 				// On ajoute la forme à la fenêtre
-				fenetreFormes.add(forme);
+				formes.add(forme);
 			}
 		}
 	}

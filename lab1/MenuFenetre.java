@@ -14,6 +14,7 @@ Historique des modifications
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -21,22 +22,19 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 import javax.swing.ButtonGroup;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
 import javax.swing.JRadioButtonMenuItem;
+
+import lab1.collections.LinkedList;
+import lab1.collections.comparators.*;
 
 /**
  * Crée le menu de la fenêtre de l'application.
  */
 public class MenuFenetre extends JMenuBar {
 	
-	private final int boucleinfinie = -1;
-	private final int obtenirformes = 10;
+	private final int BOUCLE_INFINIE = -1;
+	private final int OBTENIR_FORMES = 10;
 	private static final long serialVersionUID = 1536336192561843187L;
 	private static final int MENU_DESSIN_ARRETER_TOUCHE_MASK = ActionEvent.CTRL_MASK;
 	private static final char MENU_DESSIN_ARRETER_TOUCHE_RACC = KeyEvent.VK_A;
@@ -58,6 +56,7 @@ public class MenuFenetre extends JMenuBar {
 	private static final int DELAI_QUITTER_MSEC = 200;
 
 	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
+	private LinkedList<Object> list;
 
 	/**
 	 * Constructeur
@@ -81,7 +80,7 @@ public class MenuFenetre extends JMenuBar {
 		demarrerMenuItem = menu.getItem(0);
 		demarrerMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comm.start(boucleinfinie);
+				comm.start(BOUCLE_INFINIE);
 				rafraichirMenus();
 			}
 		});
@@ -130,7 +129,7 @@ public class MenuFenetre extends JMenuBar {
 		obtenirformesMenuItem = menu.getItem(1);
 		obtenirformesMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comm.start(obtenirformes);
+				comm.start(OBTENIR_FORMES);
 				rafraichirMenus();
 			}
 		});
@@ -140,17 +139,27 @@ public class MenuFenetre extends JMenuBar {
 	protected void addMenuOrdre() {
 		JMenu menu = new JMenu("Ordre");
 		ButtonGroup directionGroup = new ButtonGroup();
-		JRadioButtonMenuItem forwardMenuItem = new JRadioButtonMenuItem("Forward");
-		JRadioButtonMenuItem forwardMenuItem2 = new JRadioButtonMenuItem("Forward2");
-		JRadioButtonMenuItem forwardMenuItem3 = new JRadioButtonMenuItem("Forward3");
-		menu.add(forwardMenuItem);
-		menu.add(forwardMenuItem2);
-		menu.add(forwardMenuItem3);
-		directionGroup.add(forwardMenuItem);
-		directionGroup.add(forwardMenuItem2);
-		directionGroup.add(forwardMenuItem3);
+		
+		JRadioButtonMenuItem sortByAireCrois = new JRadioButtonMenuItem("Aire croissant");
+		menu.add(sortByAireCrois);
+		directionGroup.add(sortByAireCrois);
+		sortByAireCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new AireComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByAireDecrois = new JRadioButtonMenuItem("Aire decroissant");
+		menu.add(sortByAireDecrois);
+		directionGroup.add(sortByAireDecrois);
+		sortByAireDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new AireComparator(), true);
+			}
+		});
+		
 		add(menu);
-		}
+	}
 	
 	/*
 	protected void addMenuOrdre() {

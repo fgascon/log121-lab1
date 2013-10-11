@@ -8,10 +8,7 @@ import java.awt.Graphics;
  */
 public class Ovale extends AbstractForme {
 
-	private int coordonneex;
-	private int coordonneey;
-	private int width;
-	private int height;
+	private Vecteur size;
 
 	/**
 	 * Constructeur prennant un seul rayon pour représenter un cercle
@@ -20,8 +17,8 @@ public class Ovale extends AbstractForme {
 	 * @param rayon rayon du cercle
 	 * @param color couleur du cercle
 	 */
-	public Ovale(int coordonneex, int coordonneey, int rayon, Color color) {
-		this(coordonneex, coordonneey, rayon, rayon, color);
+	public Ovale(int numSequence, Color color, int coordonneex, int coordonneey, int rayon) {
+		this(numSequence, color, coordonneex, coordonneey, rayon, rayon);
 	}
 
 	/**
@@ -32,12 +29,9 @@ public class Ovale extends AbstractForme {
 	 * @param rayonV rayon vertical
 	 * @param color couleur de l'ovale
 	 */
-	public Ovale(int coordonneex, int coordonneey, int rayonH, int rayonV, Color color) {
-		super(color);
-		this.coordonneex = coordonneex - rayonH;
-		this.coordonneey = coordonneey - rayonV;
-		this.width = rayonH * 2;
-		this.height = rayonV * 2;
+	public Ovale(int numSequence, Color color, int coordonneex, int coordonneey, int rayonH, int rayonV) {
+		super(numSequence, color, new Vecteur(coordonneex - rayonH, coordonneey - rayonV));
+		this.size = new Vecteur(rayonH * 2, rayonV * 2);
 	}
 
 	@Override
@@ -47,27 +41,27 @@ public class Ovale extends AbstractForme {
 	 * @param g Graphics sur lequel dessiner l'ovale
 	 */
 	public void drawForme(Graphics graphic) {
-		graphic.fillOval(coordonneex, coordonneey, width, height);
-	}
-
-	@Override
-	protected void drawOutbound(Graphics graphics) {
-		graphics.drawRect(coordonneex, coordonneey, width, height);
+		graphic.fillOval(getCoordonnees().getX(), getCoordonnees().getY(), size.getX(), size.getY());
 	}
 
 	@Override
 	public float getMaxDistance() {
-		return Math.max(width, height);
+		return Math.max(size.getX(), size.getY());
 	}
 
 	@Override
 	public float getAire() {
 		//L'aire d'un ovale = PI * width/2 * height/2
-		return (float) (Math.PI * width * height / 4);
+		return (float) (Math.PI * size.getX() * size.getY() / 4);
 	}
 
 	@Override
 	public String getType() {
-		return width == height ? "cercle" : "ovale";
+		return size.getX() == size.getY() ? "cercle" : "ovale";
+	}
+
+	@Override
+	protected Vecteur getSize() {
+		return size;
 	}
 }

@@ -1,8 +1,8 @@
 package lab1.collections;
 
-import lab1.formes.AbstractForme;
+import java.util.Observable;
 
-public class LinkedList<E> {
+public class LinkedList<E> extends Observable {
 
 	private Noeud first;
 	private Noeud last;
@@ -37,6 +37,8 @@ public class LinkedList<E> {
 			first = first.next; //remove the first element
 			count--;
 		}
+		setChanged();
+		notifyObservers();
 	}
 	
 	public Iterator getIterator() {
@@ -71,6 +73,8 @@ public class LinkedList<E> {
 				current = current.next;
 			}
 		} while(!sorted);
+		setChanged();
+		notifyObservers();
 	}
 	
 	private class Noeud {

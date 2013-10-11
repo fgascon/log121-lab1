@@ -17,6 +17,7 @@ public abstract class AbstractForme {
             BasicStroke.JOIN_MITER,
             10.0f, DASHED_LINE, 0.0f);
 
+	private Vecteur coordonnees;
 	private Color color;
 	private int numSequence;
 
@@ -24,9 +25,10 @@ public abstract class AbstractForme {
 	 * Constructeur de la classe
 	 * @param color la couleur de la forme
 	 */
-	public AbstractForme(Color color) {
+	public AbstractForme(int numSequence, Color color, Vecteur coordonnees) {
+		this.numSequence = numSequence;
 		this.color = color;
-		this.numSequence = 0;
+		this.coordonnees = coordonnees;
 	}
 
 	/**
@@ -38,6 +40,18 @@ public abstract class AbstractForme {
 	
 	public int getNumSequence(){
 		return numSequence;
+	}
+	
+	public Vecteur getCoordonnees() {
+		return coordonnees;
+	}
+	
+	public void setCoordonnees(Vecteur coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+	
+	public void setCoordonnees(int x, int y) {
+		setCoordonnees(new Vecteur(x, y));
 	}
 	
 	public abstract String getType();
@@ -56,13 +70,14 @@ public abstract class AbstractForme {
 		
 		graphics.setColor(Color.GRAY);
 		graphics.setStroke(DASHED_STROKE);
-		this.drawOutbound(graphics);
+		Vecteur size = this.getSize();
+		graphics.drawRect(getCoordonnees().getX()-1, getCoordonnees().getY()-1, size.getX()+1, size.getY()+1);
 		graphics.setStroke(normalStroke);
 	}
 
 	protected abstract void drawForme(Graphics graphics);
 
-	protected abstract void drawOutbound(Graphics graphics);
+	protected abstract Vecteur getSize();
 	
 	public abstract float getMaxDistance();
 	

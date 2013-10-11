@@ -8,10 +8,8 @@ import java.awt.Graphics;
  */
 public class Ligne extends AbstractForme {
 
-	private int coordonneex1;
-	private int coordonneey1;
-	private int coordonneex2;
-	private int coordonneey2;
+	private Vecteur debut;
+	private Vecteur fin;
 
 	/**
 	 * Constructeur de la classe
@@ -21,12 +19,10 @@ public class Ligne extends AbstractForme {
 	 * @param coordonneey2 coordonée en Y du point 2 de la ligne
 	 * @param color couleur de la ligne
 	 */
-	public Ligne(int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2, Color color) {
-		super(color);
-		this.coordonneex1 = coordonneex1;
-		this.coordonneey1 = coordonneey1;
-		this.coordonneex2 = coordonneex2;
-		this.coordonneey2 = coordonneey2;
+	public Ligne(int numSequence, Color color, int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2) {
+		super(numSequence, color, new Vecteur(coordonneex1, coordonneey1).getMin(new Vecteur(coordonneex2, coordonneey2)));
+		this.debut = new Vecteur(coordonneex1, coordonneey1);
+		this.fin = new Vecteur(coordonneex2, coordonneey2);
 	}
 
 	@Override
@@ -36,19 +32,12 @@ public class Ligne extends AbstractForme {
 	 * @param g Graphics sur lequel dessiner la ligne
 	 */
 	public void drawForme(Graphics graphic) {
-		graphic.drawLine(coordonneex1, coordonneey1, coordonneex2, coordonneey2);
-	}
-
-	@Override
-	protected void drawOutbound(Graphics graphics) {
-		graphics.drawRect(Math.min(coordonneex1, coordonneex2), Math.min(coordonneey1, coordonneey2), Math.abs(coordonneex2-coordonneex1), Math.abs(coordonneey2-coordonneey1));
+		graphic.drawLine(debut.getX(), debut.getY(), fin.getX(), fin.getY());
 	}
 
 	@Override
 	public float getMaxDistance() {
-		float deltaX = coordonneex2-coordonneex1;
-		float deltaY = coordonneey2-coordonneey1;
-		return (float)Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+		return debut.getDistance(fin);
 	}
 
 	@Override
@@ -60,5 +49,10 @@ public class Ligne extends AbstractForme {
 	@Override
 	public String getType() {
 		return "ligne";
+	}
+
+	@Override
+	protected Vecteur getSize() {
+		return fin.substract(debut).getAbs();
 	}
 }
