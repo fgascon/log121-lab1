@@ -2,8 +2,8 @@ package lab1.collections;
 
 public class LinkedList<E> {
 
-	private Node first;
-	private Node last;
+	private Noeud first;
+	private Noeud last;
 	private int count;
 	private int capacity;
 	
@@ -23,7 +23,7 @@ public class LinkedList<E> {
 	}
 	
 	public void add(E item) {
-		Node node = new Node(item);
+		Noeud node = new Noeud(item);
 		if(last == null) {
 			first = last = node;
 		} else {
@@ -45,8 +45,8 @@ public class LinkedList<E> {
 		//bubble sort
 		int orderModifier = sortDecreasing ? -1 : 1;
 		boolean sorted;
-		Node current;
-		Node prev;
+		Noeud current;
+		Noeud prev;
 		do {
 			sorted = true;
 			current = first;
@@ -71,12 +71,12 @@ public class LinkedList<E> {
 		} while(!sorted);
 	}
 	
-	private class Node {
+	private class Noeud {
 		
 		public E item;
-		public Node next;
+		public Noeud next;
 		
-		public Node(E item) {
+		public Noeud(E item) {
 			this.item = item;
 			next = null;
 		}
@@ -84,7 +84,7 @@ public class LinkedList<E> {
 	
 	private class LinkedListIterator implements Iterator {
 		
-		private Node current;
+		private Noeud current;
 		
 		public LinkedListIterator() {
 			reset();

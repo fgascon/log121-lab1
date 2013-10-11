@@ -30,12 +30,12 @@ public class CommBase {
 	private final int DELAI = 1000;
 	private SwingWorker threadComm = null;
 	private PropertyChangeListener listener = null;
-	private boolean isActif = false;
+	private boolean actif = false;
 	private String host = "localhost";
 	private int port = 0;
 	private Socket socket;
-	private BufferedReader in;
-	private PrintWriter out;
+	private BufferedReader entre;
+	private PrintWriter sortie;
 
 	/**
 	 * Constructeur
@@ -72,12 +72,12 @@ public class CommBase {
 	 * Arrête la communication si elle est active.
 	 */
 	public void stop() {
-		if (!isActif) {
+		if (!actif) {
 			return;
 		}
 		try {
-			out.println("END");
-			out.flush();
+			sortie.println("END");
+			sortie.flush();
 			socket.close();
 		} catch (UnknownHostException e) {
 
@@ -88,7 +88,7 @@ public class CommBase {
 		}
 		if (threadComm != null)
 			threadComm.cancel(true);
-		isActif = false;
+		actif = false;
 	}
 
 	/**
@@ -103,10 +103,10 @@ public class CommBase {
 
 				try {
 					socket = new Socket(host, port);
-					in = new BufferedReader(new InputStreamReader(
+					entre = new BufferedReader(new InputStreamReader(
 							socket.getInputStream()));
 
-					out = new PrintWriter(socket.getOutputStream());
+					sortie = new PrintWriter(socket.getOutputStream());
 
 				} catch (UnknownHostException e) {
 
@@ -117,12 +117,12 @@ public class CommBase {
 				}
 				while (true) {
 					Thread.sleep(DELAI);
-					out.println("GET");
-					out.flush();
-					String message_distant = in.readLine();
-					message_distant = in.readLine();
+					sortie.println("GET");
+					sortie.flush();
+					String messagedistant = entre.readLine();
+					messagedistant = entre.readLine();
 					if (listener != null)
-						firePropertyChange("SERVER-MSG", null, message_distant);
+						firePropertyChange("SERVER-MSG", null, messagedistant);
 				}
 			}
 		};
@@ -130,13 +130,13 @@ public class CommBase {
 			threadComm.addPropertyChangeListener(listener);
 
 		threadComm.execute(); // Lance le fil d'exécution parallèle.
-		isActif = true;
+		actif = true;
 	}
 
 	/**
 	 * @return si le fil d'exécution parallèle est actif
 	 */
 	public boolean isActif() {
-		return isActif;
+		return actif;
 	}
 }

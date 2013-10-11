@@ -17,7 +17,7 @@ import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
 
-import lab1.formes.Forme;
+import lab1.formes.AbstractForme;
 
 /**
  * Cette classe représente la fenêtre principale de l'application
@@ -76,7 +76,7 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 
 			if (ligneRecu != null) {
 				// on crée la forme à partir de la ligne reçu
-				Forme forme = createurFormes.creerForme(ligneRecu);
+				AbstractForme forme = createurFormes.creerForme(ligneRecu);
 
 				// On ajoute la forme à la fenêtre
 				fenetreFormes.add(forme);

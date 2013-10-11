@@ -16,7 +16,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
-import lab1.formes.Forme;
+import lab1.formes.AbstractForme;
 
 /**
  * Cette fenêtre gère l'affichage des formes
@@ -26,13 +26,13 @@ public class FenetreFormes extends JComponent {
 	private static final long serialVersionUID = -2262235643903749505L;
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
-	public static final Dimension dimension = new Dimension(500, 500);
+	public static final Dimension DIMENSION = new Dimension(500, 500);
 	private static final int MAX_FORMS = 10;
 
 	/**
 	 * Array contenant les formes de la fenêtre.
 	 */
-	private Forme formes[];
+	private AbstractForme formes[];
 	
 	/**
 	 * Le nombre de formes présentement dans la fenêtre
@@ -43,7 +43,7 @@ public class FenetreFormes extends JComponent {
 	 * Constructeur de la classe
 	 */
 	public FenetreFormes() {
-		formes = new Forme[10];
+		formes = new AbstractForme[10];
 		nbFormes = 0;
 	}
 
@@ -65,7 +65,7 @@ public class FenetreFormes extends JComponent {
 	 * va automatiquement provoquer un repaint pour afficher les chagements.
 	 * @param forme la forme à ajouter
 	 */
-	public void add(Forme forme) {
+	public void add(AbstractForme forme) {
 		if (nbFormes < MAX_FORMS) {
 			formes[nbFormes++] = forme;
 		} else {
@@ -85,6 +85,6 @@ public class FenetreFormes extends JComponent {
 	 */
 	@Override
 	public Dimension getPreferredSize() {
-		return dimension;
+		return DIMENSION;
 	}
 }

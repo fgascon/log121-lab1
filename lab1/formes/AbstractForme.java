@@ -9,7 +9,7 @@ import java.awt.Stroke;
 /**
  * Classe abstraite représentant une forme pouvant etre affichée.
  */
-public abstract class Forme {
+public abstract class AbstractForme {
 
 	final static float DASHED_LINE[] = {10.0f};
 	final static BasicStroke DASHED_STROKE = new BasicStroke(1.0f,
@@ -24,7 +24,7 @@ public abstract class Forme {
 	 * Constructeur de la classe
 	 * @param color la couleur de la forme
 	 */
-	public Forme(Color color) {
+	public AbstractForme(Color color) {
 		this.color = color;
 		this.numSequence = 0;
 	}

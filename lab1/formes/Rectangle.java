@@ -6,27 +6,27 @@ import java.awt.Graphics;
 /**
  * Représente un rectangle pouvant être dessiné.
  */
-public class Rectangle extends Forme {
+public class Rectangle extends AbstractForme {
 
-	private int x;
-	private int y;
+	private int coordonneex;
+	private int coordonneey;
 	private int width;
 	private int height;
 
 	/**
 	 * Constructeur de la classe
-	 * @param x1 coordonée en x du premier coin du rectangle
-	 * @param y1 coordonée en y du premier coin du rectangle
-	 * @param x2 coordonée en x du deuxième coin du rectangle
-	 * @param y2 coordonée en y du deuxième coin du rectangle
+	 * @param coordonneex1 coordonée en x du premier coin du rectangle
+	 * @param coordonneey1 coordonée en y du premier coin du rectangle
+	 * @param coordonneex2 coordonée en x du deuxième coin du rectangle
+	 * @param coordonneey2 coordonée en y du deuxième coin du rectangle
 	 * @param color couleur du rectangle
 	 */
-	public Rectangle(int x1, int y1, int x2, int y2, Color color) {
+	public Rectangle(int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2, Color color) {
 		super(color);
-		width = Math.abs(x2 - x1);
-		height = Math.abs(y2 - y1);
-		x = Math.min(x1, x2);
-		y = Math.min(y1, y2);
+		width = Math.abs(coordonneex2 - coordonneex1);
+		height = Math.abs(coordonneey2 - coordonneey1);
+		coordonneex = Math.min(coordonneex1, coordonneex2);
+		coordonneey = Math.min(coordonneey1, coordonneey2);
 	}
 
 	@Override
@@ -36,12 +36,12 @@ public class Rectangle extends Forme {
 	 * @param g Graphics sur lequel dessiner le rectangle
 	 */
 	protected void drawForme(Graphics graphics){
-		graphics.fillRect(x, y, width, height);
+		graphics.fillRect(coordonneex, coordonneey, width, height);
 	}
 
 	@Override
 	protected void drawOutbound(Graphics graphics){
-		graphics.drawRect(x-1, y-1, width+1, height+1);
+		graphics.drawRect(coordonneex-1, coordonneey-1, width+1, height+1);
 	}
 
 	@Override
