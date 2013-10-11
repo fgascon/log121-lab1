@@ -37,6 +37,7 @@ public class MenuFenetre extends JMenuBar {
 			MENU_DESSIN_TITRE = "app.frame.menus.draw.title",
 			MENU_DESSIN_DEMARRER = "app.frame.menus.draw.start",
 			MENU_DESSIN_ARRETER = "app.frame.menus.draw.stop",
+			MENU_DESSIN_FORMES = "app.frame.menus.draw.formes",
 			MENU_AIDE_TITRE = "app.frame.menus.help.title",
 			MENU_AIDE_PROPOS = "app.frame.menus.help.about";
 	private static final String MESSAGE_DIALOGUE_A_PROPOS = "app.frame.dialog.about";
@@ -62,7 +63,7 @@ public class MenuFenetre extends JMenuBar {
 
 	protected void addMenuDessiner() {
 		JMenu menu = creerMenu(MENU_DESSIN_TITRE, new String[] {
-				MENU_DESSIN_DEMARRER, MENU_DESSIN_ARRETER });
+				MENU_DESSIN_DEMARRER, MENU_DESSIN_ARRETER, MENU_DESSIN_FORMES});
 
 		demarrerMenuItem = menu.getItem(0);
 		demarrerMenuItem.addActionListener(new ActionListener() {
