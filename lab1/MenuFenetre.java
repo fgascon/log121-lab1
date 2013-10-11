@@ -20,6 +20,16 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+import javax.swing.JRadioButtonMenuItem;
+
 /**
  * Crée le menu de la fenêtre de l'application.
  */
@@ -56,6 +66,7 @@ public class MenuFenetre extends JMenuBar {
 		this.comm = comm;
 		addMenuDessiner();
 		addMenuFichier();
+		addMenuOrdre();
 		addMenuAide();
 	}
 
@@ -125,6 +136,51 @@ public class MenuFenetre extends JMenuBar {
 		});
 		add(menu);
 	}
+	
+	protected void addMenuOrdre() {
+		JMenu menu = new JMenu("Ordre");
+		ButtonGroup directionGroup = new ButtonGroup();
+		JRadioButtonMenuItem forwardMenuItem = new JRadioButtonMenuItem("Forward");
+		JRadioButtonMenuItem forwardMenuItem2 = new JRadioButtonMenuItem("Forward2");
+		JRadioButtonMenuItem forwardMenuItem3 = new JRadioButtonMenuItem("Forward3");
+		menu.add(forwardMenuItem);
+		menu.add(forwardMenuItem2);
+		menu.add(forwardMenuItem3);
+		directionGroup.add(forwardMenuItem);
+		directionGroup.add(forwardMenuItem2);
+		directionGroup.add(forwardMenuItem3);
+		add(menu);
+		}
+	
+	/*
+	protected void addMenuOrdre() {
+		JMenu menu = creerMenu("Ordre",
+				new String[] { MENU_FICHIER_QUITTER, MENU_FICHIER_FORMES });
+		menu.getItem(0).addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comm.stop();
+				try {
+					Thread.sleep(DELAI_QUITTER_MSEC);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.exit(0);
+			}
+		});
+		menu.getItem(0).setAccelerator(
+				KeyStroke.getKeyStroke(MENU_FICHIER_QUITTER_TOUCHE_RACC,
+						MENU_FICHIER_QUITTER_TOUCHE_MASK));
+		
+		
+		obtenirformesMenuItem = menu.getItem(1);
+		obtenirformesMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comm.start(obtenirformes);
+				rafraichirMenus();
+			}
+		});
+		add(menu);
+	}*/
 
 	/**
 	 * Créer le menu "Help".
