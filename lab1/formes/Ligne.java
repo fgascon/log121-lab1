@@ -22,7 +22,7 @@ public class Ligne extends AbstractForme {
 	 * @param color couleur de la ligne
 	 */
 	public Ligne(int numSequence, Color color, int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2) {
-		super(numSequence, color, new Vecteur(coordonneex1, coordonneey1).getMin(new Vecteur(coordonneex2, coordonneey2)));
+		super(numSequence, color, (new Vecteur(coordonneex1, coordonneey1)).getMin(new Vecteur(coordonneex2, coordonneey2)));
 		this.debut = new Vecteur(coordonneex1, coordonneey1);
 		this.fin = new Vecteur(coordonneex2, coordonneey2);
 	}
