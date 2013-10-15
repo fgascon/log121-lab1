@@ -1,4 +1,4 @@
-package lab1.formes;
+package lab1.math;
 
 public class Vecteur {
 

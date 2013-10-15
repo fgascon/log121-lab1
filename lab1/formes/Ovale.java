@@ -3,6 +3,8 @@ package lab1.formes;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import lab1.math.Vecteur;
+
 /**
  * Représente un ovale pouvant être dessiné.
  */

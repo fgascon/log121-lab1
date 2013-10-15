@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 
+import lab1.math.Vecteur;
+
 /**
  * Classe abstraite représentant une forme pouvant etre affichée.
  */
