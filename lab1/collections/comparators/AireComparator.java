@@ -10,7 +10,7 @@ public class AireComparator implements Comparator {
 		if(obj1 instanceof AbstractForme && obj2 instanceof AbstractForme) {
 			AbstractForme forme1 = (AbstractForme) obj1;
 			AbstractForme forme2 = (AbstractForme) obj2;
-			return (int) Math.signum(forme2.getAire() - forme1.getAire());
+			return (int) Math.signum(forme1.getAire() - forme2.getAire());
 		} else {
 			return 0;
 		}

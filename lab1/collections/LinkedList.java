@@ -58,7 +58,7 @@ public class LinkedList<E> extends Observable {
 			while(current.next != null) {
 				
 				//check if elements are not in the right order
-				if(comparator.compare(current, current.next) * orderModifier < 0) {
+				if(comparator.compare(current.item, current.next.item) * orderModifier < 0) {
 					sorted = false;
 					//swap the 2 nodes
 					if(prev != null) {

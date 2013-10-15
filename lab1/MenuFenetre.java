@@ -56,13 +56,14 @@ public class MenuFenetre extends JMenuBar {
 	private static final int DELAI_QUITTER_MSEC = 200;
 
 	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
-	private LinkedList<Object> list;
+	private final LinkedList list;
 
 	/**
 	 * Constructeur
 	 */
-	public MenuFenetre(CommBase comm) {
+	public MenuFenetre(CommBase comm, LinkedList list) {
 		this.comm = comm;
+		this.list = list;
 		addMenuDessiner();
 		addMenuFichier();
 		addMenuOrdre();

@@ -27,6 +27,7 @@ import lab1.formes.AbstractForme;
 public class FenetreFormes extends JComponent implements Observer {
 
 	private static final long serialVersionUID = -2262235643903749505L;
+	private static final int DISTANCE_ENTRE_FORMES = 40;
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	public static final Dimension DIMENSION = new Dimension(500, 500);
@@ -70,6 +71,16 @@ public class FenetreFormes extends JComponent implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		
+		//on dispose les formes par ordre
+		Iterator iterator = formes.getIterator();
+		int pos = 0;
+		while(iterator.hasNext()){
+			AbstractForme forme = (AbstractForme) iterator.getNext();
+			forme.setCoordonnees(pos, pos);
+			pos += DISTANCE_ENTRE_FORMES;
+		}
+		
 		// on repaint les formes pour prendre en compte les changements
 		this.repaint();
 	}

@@ -50,12 +50,12 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 	 */
 	public FenetrePrincipale(CommBase comm) {
 		this.createurFormes = new CreateurFormes();
+		
+		this.formes = new LinkedList<AbstractForme>(MAX_FORMS);
 
-		MenuFenetre menu = new MenuFenetre(comm);
+		MenuFenetre menu = new MenuFenetre(comm, formes);
 		this.setLayout(new BorderLayout());
 		this.add(menu, BorderLayout.NORTH);
-		
-		formes = new LinkedList<AbstractForme>(MAX_FORMS);
 
 		fenetreFormes = new FenetreFormes(formes);
 		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de
