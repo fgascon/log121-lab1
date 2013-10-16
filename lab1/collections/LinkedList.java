@@ -51,20 +51,30 @@ public class LinkedList<E> extends Observable {
 		boolean sorted;
 		Noeud current;
 		Noeud prev;
+		Noeud noeudTemporaire;
 		do {
 			sorted = true;
 			current = first;
 			prev = null;
-			while(current.next != null) {
+			while(current != null && current.next != null) {
 				
 				//check if elements are not in the right order
 				if(comparator.compare(current.item, current.next.item) * orderModifier < 0) {
 					sorted = false;
 					//swap the 2 nodes
-					if(prev != null) {
-						prev.next = current.next;
+					if(current == first) {
+						first = current.next;
 					}
-					current.next.next = current;
+					if(current.next == last) {
+						last = current;
+					}
+					noeudTemporaire = current;
+					current = current.next;
+					if(prev != null) {
+						prev.next = current;
+					}
+					noeudTemporaire.next = current.next;
+					current.next = noeudTemporaire;
 					current = current.next;
 				}
 				
