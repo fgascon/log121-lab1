@@ -2,6 +2,7 @@ package lab1;
 import java.awt.Color;
 
 import lab1.formes.*;
+import lab1.math.Vecteur;
 
 import ca.etsmtl.log.util.IDLogger;
 
@@ -48,35 +49,28 @@ public class CreateurFormes {
 			return new Ligne(
 					unRegex.getId(),
 					Color.ORANGE,
-					unRegex.getX1(),
-					unRegex.getY1(),
-					unRegex.getX2(),
-					unRegex.getY2());
+					new Vecteur(unRegex.getX1(), unRegex.getY1()),
+					new Vecteur(unRegex.getX2(), unRegex.getY2()));
 		}
 		else if (unRegex.getForme().equals(rectangle)){
 			return new Rectangle(
 					unRegex.getId(),
 					Color.CYAN,
-					unRegex.getX1(),
-					unRegex.getY1(),
-					unRegex.getX2(),
-					unRegex.getY2());
+					new Vecteur(unRegex.getX1(), unRegex.getY1()),
+					new Vecteur(unRegex.getX2(), unRegex.getY2()));
 		}
 		else if (unRegex.getForme().equals(carre)){
 			return new Rectangle(
 					unRegex.getId(),
 					Color.PINK,
-					unRegex.getX1(),
-					unRegex.getY1(),
-					unRegex.getX2(),
-					unRegex.getY2());
+					new Vecteur(unRegex.getX1(), unRegex.getY1()),
+					new Vecteur(unRegex.getX2(), unRegex.getY2()));
 		}
 		else if (unRegex.getForme().equals(ovale)){
 			return new Ovale(
 					unRegex.getId(),
 					Color.BLUE,
-					unRegex.getX1(),
-					unRegex.getY1(),
+					new Vecteur(unRegex.getX1(), unRegex.getY1()),
 					unRegex.getX2(),
 					unRegex.getY2());
 		}
@@ -84,8 +78,7 @@ public class CreateurFormes {
 			return new Ovale(
 					unRegex.getId(),
 					Color.RED,
-					unRegex.getX1(),
-					unRegex.getY1(),
+					new Vecteur(unRegex.getX1(), unRegex.getY1()),
 					unRegex.getX2());
 		}
 		else {

@@ -14,25 +14,25 @@ public class Ovale extends AbstractForme {
 
 	/**
 	 * Constructeur prennant un seul rayon pour représenter un cercle
-	 * @param coordonneex coordonée en x du centre
-	 * @param coordonneey coordonée en y du centre
-	 * @param rayon rayon du cercle
+	 * @param numSequence numéro de séquence
 	 * @param color couleur du cercle
+	 * @param coordonnees coordonées du centre
+	 * @param rayon rayon du cercle
 	 */
-	public Ovale(int numSequence, Color color, int coordonneex, int coordonneey, int rayon) {
-		this(numSequence, color, coordonneex, coordonneey, rayon, rayon);
+	public Ovale(int numSequence, Color color, Vecteur coordonnees, int rayon) {
+		this(numSequence, color, coordonnees, rayon, rayon);
 	}
 
 	/**
 	 * Constructeur prennant 2 rayons pour représenter un ovale
-	 * @param coordonneex coordonée en x du centre
-	 * @param coordonneey coordonée en y du centre
+	 * @param numSequence numéro de séquence
+	 * @param color couleur de l'ovale
+	 * @param coordonnees coordonées du centre
 	 * @param rayonH rayon horizontal
 	 * @param rayonV rayon vertical
-	 * @param color couleur de l'ovale
 	 */
-	public Ovale(int numSequence, Color color, int coordonneex, int coordonneey, int rayonH, int rayonV) {
-		super(numSequence, color, new Vecteur(coordonneex - rayonH, coordonneey - rayonV));
+	public Ovale(int numSequence, Color color, Vecteur coordonnees, int rayonH, int rayonV) {
+		super(numSequence, color, coordonnees.substract(new Vecteur(rayonH, rayonV)));
 		this.size = new Vecteur(rayonH * 2, rayonV * 2);
 	}
 

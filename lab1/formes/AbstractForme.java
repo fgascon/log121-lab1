@@ -22,7 +22,7 @@ public abstract class AbstractForme {
 	private Vecteur coordonnees;
 	private Color color;
 	private int numSequence;
-
+	
 	/**
 	 * Constructeur de la classe
 	 * @param color la couleur de la forme
@@ -32,7 +32,7 @@ public abstract class AbstractForme {
 		this.color = color;
 		this.coordonnees = coordonnees;
 	}
-
+	
 	/**
 	 * @return la couleur de la forme
 	 */
@@ -57,7 +57,7 @@ public abstract class AbstractForme {
 	}
 	
 	public abstract String getType();
-
+	
 	/**
 	 * Paint la forme sur un object Graphics.
 	 * Cette méthode doit être implémenté dans les classes concrètes.

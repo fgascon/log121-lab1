@@ -9,24 +9,30 @@ import lab1.math.Vecteur;
  * Représente une ligne pouvant être dessinée
  */
 public class Ligne extends AbstractForme {
-
+	
+	/**
+	 * La position du début de la ligne relative aux coordonnées de la forme
+	 */
 	private Vecteur debut;
+	
+	/**
+	 * La position de la fin de la ligne relative aux coordonnées de la forme
+	 */
 	private Vecteur fin;
-
+	
 	/**
 	 * Constructeur de la classe
-	 * @param coordonneex1 coordonée en X du point 1 de la ligne
-	 * @param coordonneey1 coordonée en Y du point 1 de la ligne
-	 * @param coordonneex2 coordonée en X du point 2 de la ligne
-	 * @param coordonneey2 coordonée en Y du point 2 de la ligne
+	 * @param numSequence numéro de séquence
 	 * @param color couleur de la ligne
+	 * @param debut coordonée du point 1 de la ligne
+	 * @param fin coordonée du point 2 de la ligne
 	 */
-	public Ligne(int numSequence, Color color, int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2) {
-		super(numSequence, color, (new Vecteur(coordonneex1, coordonneey1)).getMin(new Vecteur(coordonneex2, coordonneey2)));
-		this.debut = new Vecteur(coordonneex1, coordonneey1);
-		this.fin = new Vecteur(coordonneex2, coordonneey2);
+	public Ligne(int numSequence, Color color, Vecteur debut, Vecteur fin) {
+		super(numSequence, color, debut.getMin(fin));
+		this.debut = getCoordonnees().substract(debut);
+		this.fin = getCoordonnees().substract(fin);
 	}
-
+	
 	@Override
 	/**
 	 * Paint la ligne sur un object Graphics.
@@ -34,7 +40,9 @@ public class Ligne extends AbstractForme {
 	 * @param g Graphics sur lequel dessiner la ligne
 	 */
 	public void drawForme(Graphics graphic) {
-		graphic.drawLine(debut.getX(), debut.getY(), fin.getX(), fin.getY());
+		Vecteur debutAbsolu = getCoordonnees().add(debut);
+		Vecteur finAbsolu = getCoordonnees().add(fin);
+		graphic.drawLine(debutAbsolu.getX(), debutAbsolu.getY(), finAbsolu.getX(), finAbsolu.getY());
 	}
 
 	@Override

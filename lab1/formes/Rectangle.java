@@ -9,22 +9,20 @@ import lab1.math.Vecteur;
  * Représente un rectangle pouvant être dessiné.
  */
 public class Rectangle extends AbstractForme {
-
+	
 	private Vecteur size;
-
+	
 	/**
 	 * Constructeur de la classe
-	 * @param coordonneex1 coordonée en x du premier coin du rectangle
-	 * @param coordonneey1 coordonée en y du premier coin du rectangle
-	 * @param coordonneex2 coordonée en x du deuxième coin du rectangle
-	 * @param coordonneey2 coordonée en y du deuxième coin du rectangle
 	 * @param color couleur du rectangle
+	 * @param coordonnees1 coordonées du premier coin du rectangle
+	 * @param coordonnees2 coordonées du deuxième coin du rectangle
 	 */
-	public Rectangle(int numSequence, Color color, int coordonneex1, int coordonneey1, int coordonneex2, int coordonneey2) {
-		super(numSequence, color, new Vecteur(Math.min(coordonneex1, coordonneex2), Math.min(coordonneey1, coordonneey2)));
-		size = new Vecteur(Math.abs(coordonneex2 - coordonneex1), Math.abs(coordonneey2 - coordonneey1));
+	public Rectangle(int numSequence, Color color, Vecteur coordonnees1, Vecteur coordonnees2) {
+		super(numSequence, color, coordonnees1.getMin(coordonnees2));
+		size = coordonnees2.substract(coordonnees1).getAbs();
 	}
-
+	
 	@Override
 	/**
 	 * Paint le rectangle sur un object Graphics.
