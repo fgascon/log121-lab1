@@ -159,38 +159,62 @@ public class MenuFenetre extends JMenuBar {
 			}
 		});
 		
+		JRadioButtonMenuItem sortByMaxDistanceCrois = new JRadioButtonMenuItem("Distance max croissant");
+		menu.add(sortByMaxDistanceCrois);
+		directionGroup.add(sortByMaxDistanceCrois);
+		sortByMaxDistanceCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new MaxDistanceComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByMaxDistanceDecrois = new JRadioButtonMenuItem("Distance max decroissant");
+		menu.add(sortByMaxDistanceDecrois);
+		directionGroup.add(sortByMaxDistanceDecrois);
+		sortByMaxDistanceDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new MaxDistanceComparator(), true);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByNumSeqCrois = new JRadioButtonMenuItem("Numéro de séquence croissant");
+		menu.add(sortByNumSeqCrois);
+		directionGroup.add(sortByNumSeqCrois);
+		sortByNumSeqCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new NumSeqComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByNumSeqDecrois = new JRadioButtonMenuItem("Numéro de séquence decroissant");
+		menu.add(sortByNumSeqDecrois);
+		directionGroup.add(sortByNumSeqDecrois);
+		sortByNumSeqDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new NumSeqComparator(), true);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByTypeCrois = new JRadioButtonMenuItem("Type croissant");
+		menu.add(sortByTypeCrois);
+		directionGroup.add(sortByTypeCrois);
+		sortByTypeCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new TypeComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByTypeDecrois = new JRadioButtonMenuItem("Type decroissant");
+		menu.add(sortByTypeDecrois);
+		directionGroup.add(sortByTypeDecrois);
+		sortByTypeDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new TypeComparator(), true);
+			}
+		});
+		
 		add(menu);
 	}
-	
-	/*
-	protected void addMenuOrdre() {
-		JMenu menu = creerMenu("Ordre",
-				new String[] { MENU_FICHIER_QUITTER, MENU_FICHIER_FORMES });
-		menu.getItem(0).addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				comm.stop();
-				try {
-					Thread.sleep(DELAI_QUITTER_MSEC);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				System.exit(0);
-			}
-		});
-		menu.getItem(0).setAccelerator(
-				KeyStroke.getKeyStroke(MENU_FICHIER_QUITTER_TOUCHE_RACC,
-						MENU_FICHIER_QUITTER_TOUCHE_MASK));
-		
-		
-		obtenirformesMenuItem = menu.getItem(1);
-		obtenirformesMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				comm.start(obtenirformes);
-				rafraichirMenus();
-			}
-		});
-		add(menu);
-	}*/
 
 	/**
 	 * Créer le menu "Help".
