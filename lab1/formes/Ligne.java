@@ -29,8 +29,8 @@ public class Ligne extends AbstractForme {
 	 */
 	public Ligne(int numSequence, Color color, Vecteur debut, Vecteur fin) {
 		super(numSequence, color, debut.getMin(fin));
-		this.debut = getCoordonnees().substract(debut);
-		this.fin = getCoordonnees().substract(fin);
+		this.debut = debut.substract(getCoordonnees());
+		this.fin = fin.substract(getCoordonnees());
 	}
 	
 	@Override
