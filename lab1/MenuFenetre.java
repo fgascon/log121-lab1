@@ -36,24 +36,24 @@ public class MenuFenetre extends JMenuBar {
 	private final int BOUCLE_INFINIE = -1;
 	private final int OBTENIR_FORMES = 10;
 	private static final long serialVersionUID = 1536336192561843187L;
-	private static final int MENU_DESSIN_ARRETER_TOUCHE_MASK = ActionEvent.CTRL_MASK;
-	private static final char MENU_DESSIN_ARRETER_TOUCHE_RACC = KeyEvent.VK_A;
-	private static final int MENU_DESSIN_DEMARRER_TOUCHE_MASK = ActionEvent.CTRL_MASK;
-	private static final char MENU_DESSIN_DEMARRER_TOUCHE_RACC = KeyEvent.VK_D;
-	private static final int MENU_FICHIER_QUITTER_TOUCHE_MASK = ActionEvent.CTRL_MASK;
-	private static final char MENU_FICHIER_QUITTER_TOUCHE_RACC = KeyEvent.VK_Q;
-	private static final String MENU_FICHIER_TITRE = "app.frame.menus.file.title",
-			MENU_FICHIER_QUITTER = "app.frame.menus.file.exit",
+	private static final int MENU_DESSIN_ARRETER_TOUCHE_MASK = ActionEvent.CTRL_MASK; // NOPMD by Gabriel on 13-10-17 19:14
+	private static final char MENU_DESSIN_ARRETER_TOUCHE_RACC = KeyEvent.VK_A; // NOPMD by Gabriel on 13-10-17 19:16
+	private static final int MENU_DESSIN_DEMARRER_TOUCHE_MASK = ActionEvent.CTRL_MASK; // NOPMD by Gabriel on 13-10-17 19:15
+	private static final char MENU_DESSIN_DEMARRER_TOUCHE_RACC = KeyEvent.VK_D; // NOPMD by Gabriel on 13-10-17 19:15
+	private static final int MENU_FICHIER_QUITTER_TOUCHE_MASK = ActionEvent.CTRL_MASK; // NOPMD by Gabriel on 13-10-17 19:15
+	private static final char MENU_FICHIER_QUITTER_TOUCHE_RACC = KeyEvent.VK_Q; // NOPMD by Gabriel on 13-10-17 19:15
+	private static final String MENU_FICHIER_TITRE = "app.frame.menus.file.title", // NOPMD by Gabriel on 13-10-17 19:14
+			MENU_FICHIER_QUITTER = "app.frame.menus.file.exit", // NOPMD by Gabriel on 13-10-17 19:15
 			MENU_DESSIN_TITRE = "app.frame.menus.draw.title",
-			MENU_DESSIN_DEMARRER = "app.frame.menus.draw.start",
-			MENU_DESSIN_ARRETER = "app.frame.menus.draw.stop",
-			MENU_FICHIER_FORMES = "app.frame.menus.file.formes",
+			MENU_DESSIN_DEMARRER = "app.frame.menus.draw.start", // NOPMD by Gabriel on 13-10-17 19:15
+			MENU_DESSIN_ARRETER = "app.frame.menus.draw.stop", // NOPMD by Gabriel on 13-10-17 19:15
+			MENU_FICHIER_FORMES = "app.frame.menus.file.formes", // NOPMD by Gabriel on 13-10-17 19:16
 			MENU_AIDE_TITRE = "app.frame.menus.help.title",
 			MENU_AIDE_PROPOS = "app.frame.menus.help.about";
-	private static final String MESSAGE_DIALOGUE_A_PROPOS = "app.frame.dialog.about";
+	private static final String MESSAGE_DIALOGUE_A_PROPOS = "app.frame.dialog.about"; // NOPMD by Gabriel on 13-10-17 19:15
 
-	private JMenuItem arreterMenuItem, demarrerMenuItem, obtenirformesMenuItem;
-	private static final int DELAI_QUITTER_MSEC = 200;
+	private JMenuItem arreterMenuItem, demarrerMenuItem, obtenirformesMenuItem; // NOPMD by Gabriel on 13-10-17 19:15
+	private static final int DELAI_QUITTER_MSEC = 200; // NOPMD by Gabriel on 13-10-17 19:16
 
 	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
 	private final LinkedList list;
@@ -159,7 +159,7 @@ public class MenuFenetre extends JMenuBar {
 			}
 		});
 		
-		JRadioButtonMenuItem sortByMaxDistanceCrois = new JRadioButtonMenuItem("Distance max croissant");
+		JRadioButtonMenuItem sortByMaxDistanceCrois = new JRadioButtonMenuItem("Distance max croissant"); // NOPMD by Gabriel on 13-10-17 19:16
 		menu.add(sortByMaxDistanceCrois);
 		directionGroup.add(sortByMaxDistanceCrois);
 		sortByMaxDistanceCrois.addActionListener(new ActionListener() {
@@ -168,7 +168,7 @@ public class MenuFenetre extends JMenuBar {
 			}
 		});
 		
-		JRadioButtonMenuItem sortByMaxDistanceDecrois = new JRadioButtonMenuItem("Distance max decroissant");
+		JRadioButtonMenuItem sortByMaxDistanceDecrois = new JRadioButtonMenuItem("Distance max decroissant"); // NOPMD by Gabriel on 13-10-17 19:15
 		menu.add(sortByMaxDistanceDecrois);
 		directionGroup.add(sortByMaxDistanceDecrois);
 		sortByMaxDistanceDecrois.addActionListener(new ActionListener() {
@@ -186,7 +186,7 @@ public class MenuFenetre extends JMenuBar {
 			}
 		});
 		
-		JRadioButtonMenuItem sortByNumSeqDecrois = new JRadioButtonMenuItem("Numéro de séquence decroissant");
+		JRadioButtonMenuItem sortByNumSeqDecrois = new JRadioButtonMenuItem("Numéro de séquence decroissant"); // NOPMD by Gabriel on 13-10-17 19:16
 		menu.add(sortByNumSeqDecrois);
 		directionGroup.add(sortByNumSeqDecrois);
 		sortByNumSeqDecrois.addActionListener(new ActionListener() {

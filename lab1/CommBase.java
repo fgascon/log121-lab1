@@ -115,7 +115,7 @@ public class CommBase {
 
 					e.printStackTrace();
 				}
-				int i=0;
+				int i=0; // NOPMD by Gabriel on 13-10-17 19:09
 				while (i != nbdeformes) {
 					Thread.sleep(DELAI);
 					sortie.println("GET");

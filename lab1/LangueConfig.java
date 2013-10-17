@@ -20,9 +20,9 @@ import java.util.ResourceBundle;
  */
 public class LangueConfig {
 
-	static private final String PREFS_BUNDLE_BASENAME = "prefs";
+	static private final String PREFS_BUNDLE_BASENAME = "prefs"; // NOPMD by Gabriel on 13-10-17 19:11
 	static private final String BUNDLE_BASENAME = "app",
-			PREFERRED_LOCALE_KEY = "locale";
+			PREFERRED_LOCALE_KEY = "locale"; // NOPMD by Gabriel on 13-10-17 19:11
 	private static ResourceBundle preferences, resources;
 	static private Locale locale;
 

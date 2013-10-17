@@ -5,50 +5,50 @@ public class Vecteur {
 	/**
 	 * Composante en x du vecteur
 	 */
-	private int x;
+	private int composantex;
 	
 	/**
 	 * Composante en y du vecteur
 	 */
-	private int y;
+	private int composantey;
 	
 	/**
-	 * @param x Composante en x du vecteur
-	 * @param y Composante en y du vecteur
+	 * @param compox Composante en x du vecteur
+	 * @param compoy Composante en y du vecteur
 	 */
-	public Vecteur(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public Vecteur(int compox, int compoy) {
+		this.composantex = compox;
+		this.composantey = compoy;
 	}
 	
 	/**
 	 * @return Composante en x du vecteur
 	 */
 	public int getX() {
-		return x;
+		return composantex;
 	}
 	
 	/**
 	 * Modifier la composante en x du vecteur
-	 * @param x Composante en x du vecteur
+	 * @param compox Composante en x du vecteur
 	 */
-	public void setX(int x) {
-		this.x = x;
+	public void setX(int compox) {
+		this.composantex = compox;
 	}
 	
 	/**
 	 * @return Composante en y du vecteur
 	 */
 	public int getY() {
-		return y;
+		return composantey;
 	}
 	
 	/**
 	 * Modifier la composante en y du vecteur
-	 * @param y Composante en y du vecteur
+	 * @param compoy Composante en y du vecteur
 	 */
-	public void setY(int y) {
-		this.y = y;
+	public void setY(int compoy) {
+		this.composantey = compoy;
 	}
 	
 	/**

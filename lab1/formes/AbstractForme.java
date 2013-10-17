@@ -52,8 +52,8 @@ public abstract class AbstractForme {
 		this.coordonnees = coordonnees;
 	}
 	
-	public void setCoordonnees(int x, int y) {
-		setCoordonnees(new Vecteur(x, y));
+	public void setCoordonnees(int coordinneex, int coordonneey) {
+		setCoordonnees(new Vecteur(coordinneex, coordonneey));
 	}
 	
 	public abstract String getType();
