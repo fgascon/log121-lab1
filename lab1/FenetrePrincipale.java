@@ -58,6 +58,7 @@ public class FenetrePrincipale extends JFrame implements PropertyChangeListener 
 		this.add(menu, BorderLayout.NORTH);
 
 		fenetreFormes = new FenetreFormes(formes);
+		formes.addObserver(fenetreFormes);
 		this.add(fenetreFormes, BorderLayout.CENTER); // Ajoute la fenêtre de
 														// forme à la fenêtre
 														// principale

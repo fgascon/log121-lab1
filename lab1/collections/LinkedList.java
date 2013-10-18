@@ -2,7 +2,7 @@ package lab1.collections;
 
 import java.util.Observable;
 
-public class LinkedList<E> extends Observable {
+public class LinkedList<E> extends Observable implements Iterable, Sortable {
 
 	private Noeud first;
 	private Noeud last;

@@ -17,9 +17,10 @@ import java.awt.Graphics2D;
 import java.util.Observable;
 import java.util.Observer;
 
-import lab1.collections.*;
-import javax.swing.JComponent;
+import lab1.collections.Iterable;
+import lab1.collections.Iterator;
 import lab1.formes.AbstractForme;
+import javax.swing.JComponent;
 
 /**
  * Cette fenêtre gère l'affichage des formes
@@ -33,16 +34,15 @@ public class FenetreFormes extends JComponent implements Observer {
 	public static final Dimension DIMENSION = new Dimension(500, 500);
 
 	/**
-	 * Array contenant les formes de la fenêtre.
+	 * Liste de formes
 	 */
-	private LinkedList<AbstractForme> formes;
+	private Iterable formes;
 
 	/**
 	 * Constructeur de la classe
 	 */
-	public FenetreFormes(LinkedList<AbstractForme> formes) {
+	public FenetreFormes(Iterable formes) {
 		this.formes = formes;
-		formes.addObserver(this);
 	}
 
 	/**

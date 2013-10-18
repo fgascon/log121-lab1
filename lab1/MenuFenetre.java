@@ -25,7 +25,7 @@ import javax.swing.ButtonGroup;
 
 import javax.swing.JRadioButtonMenuItem;
 
-import lab1.collections.LinkedList;
+import lab1.collections.Sortable;
 import lab1.collections.comparators.*;
 
 /**
@@ -56,12 +56,12 @@ public class MenuFenetre extends JMenuBar {
 	private static final int DELAI_QUITTER_MSEC = 200; // NOPMD by Gabriel on 13-10-17 19:16
 
 	private CommBase comm; // Pour activer/désactiver la communication avec le serveur
-	private final LinkedList list;
+	private final Sortable list;
 
 	/**
 	 * Constructeur
 	 */
-	public MenuFenetre(CommBase comm, LinkedList list) {
+	public MenuFenetre(CommBase comm, Sortable list) {
 		this.comm = comm;
 		this.list = list;
 		addMenuDessiner();
