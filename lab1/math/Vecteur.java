@@ -66,7 +66,7 @@ public class Vecteur {
 	 * @return nouveau vecteur, somme des 2 vecteurs
 	 */
 	public Vecteur add(Vecteur vecteur2) {
-		return new Vecteur(getX() - vecteur2.getX(), getY() - vecteur2.getY());
+		return new Vecteur(getX() + vecteur2.getX(), getY() + vecteur2.getY());
 	}
 	
 	/**

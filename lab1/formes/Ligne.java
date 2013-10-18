@@ -40,8 +40,8 @@ public class Ligne extends AbstractForme {
 	 * @param g Graphics sur lequel dessiner la ligne
 	 */
 	public void drawForme(Graphics graphic) {
-		Vecteur debutAbsolu = getCoordonnees().add(debut);
-		Vecteur finAbsolu = getCoordonnees().add(fin);
+		Vecteur debutAbsolu = debut.substract(getCoordonnees());
+		Vecteur finAbsolu = fin.substract(getCoordonnees());
 		graphic.drawLine(debutAbsolu.getX(), debutAbsolu.getY(), finAbsolu.getX(), finAbsolu.getY());
 	}
 
