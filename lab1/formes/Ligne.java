@@ -62,7 +62,7 @@ public class Ligne extends AbstractForme {
 	}
 
 	@Override
-	protected Vecteur getSize() {
+	public Vecteur getSize() {
 		return fin.substract(debut).getAbs();
 	}
 }

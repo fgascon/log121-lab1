@@ -213,6 +213,42 @@ public class MenuFenetre extends JMenuBar {
 			}
 		});
 		
+		JRadioButtonMenuItem sortByWidthCrois = new JRadioButtonMenuItem("Largeur croissant");
+		menu.add(sortByWidthCrois);
+		directionGroup.add(sortByWidthCrois);
+		sortByWidthCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new WidthComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByWidthDecrois = new JRadioButtonMenuItem("Largeur decroissant");
+		menu.add(sortByWidthDecrois);
+		directionGroup.add(sortByWidthDecrois);
+		sortByWidthDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new WidthComparator(), true);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByHeightCrois = new JRadioButtonMenuItem("Hauteur croissant");
+		menu.add(sortByHeightCrois);
+		directionGroup.add(sortByHeightCrois);
+		sortByHeightCrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new HeightComparator(), false);
+			}
+		});
+		
+		JRadioButtonMenuItem sortByHeightDecrois = new JRadioButtonMenuItem("Hauteur decroissant");
+		menu.add(sortByHeightDecrois);
+		directionGroup.add(sortByHeightDecrois);
+		sortByHeightDecrois.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				list.sort(new HeightComparator(), true);
+			}
+		});
+		
 		add(menu);
 	}
 

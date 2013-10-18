@@ -33,7 +33,7 @@ public class Rectangle extends AbstractForme {
 		graphics.fillRect(getCoordonnees().getX(), getCoordonnees().getY(), size.getX(), size.getY());
 	}
 	
-	protected Vecteur getSize() {
+	public Vecteur getSize() {
 		return size;
 	}
 

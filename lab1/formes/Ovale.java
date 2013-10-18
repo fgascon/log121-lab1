@@ -63,7 +63,7 @@ public class Ovale extends AbstractForme {
 	}
 
 	@Override
-	protected Vecteur getSize() {
+	public Vecteur getSize() {
 		return size;
 	}
 }

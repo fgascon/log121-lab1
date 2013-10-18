@@ -79,7 +79,7 @@ public abstract class AbstractForme {
 
 	protected abstract void drawForme(Graphics graphics);
 
-	protected abstract Vecteur getSize();
+	public abstract Vecteur getSize();
 	
 	public abstract float getMaxDistance();
 	
